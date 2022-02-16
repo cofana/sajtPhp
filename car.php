@@ -10,6 +10,7 @@
   <?php
     include_once "includes/nav.php";
   ?>
+
     
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -27,7 +28,30 @@
 		<section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row">
-    			<div class="col-md-4">
+				<?php
+					/* include_once "data/connection.php";
+					global $con;
+					$query = "SELECT * FROM cars c INNER JOIN cars_brand cb on c.cars_brandID = cb.cars_brandID";
+					$cars = $con->query($query)->fetchAll();
+					if($con->query($query)->rowCount()>0){
+						foreach ($cars as $car) {
+							$output="<div class='col-md-4><div class='car-wrap rounded ftco-animate'><div class='img rounded d-flex align-items-end' style='background-image: url(images/Audi_A4_Avant.jpg);'>
+							</div><div class='text'>
+    						<h2 class='mb-0'><a href='$car->carsID'>$car->model</a></h2>
+    						<div class='d-flex mb-3'>
+	    						<span class='cat'>$car->name</span>
+	    						<p class='price ml-auto'>$$car->price <span>/day</span></p>
+    						</div>
+    						<p class='d-flex mb-0 d-block'><a href='#' class='btn btn-primary py-2 mr-1 book-btn'>Book now</a></p>
+    					</div></div></div>";
+							echo $output;
+						}
+					}
+					else{
+						echo "Nema nista";
+					} */
+				?>
+    			 <div class="col-md-4">
     				<div class="car-wrap rounded ftco-animate">
     					<div class="img rounded d-flex align-items-end" style="background-image: url(images/Audi_A4_Avant.jpg);">
     					</div>
