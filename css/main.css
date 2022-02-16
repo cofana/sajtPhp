@@ -36,3 +36,13 @@ input[name=passwordR]{
 input[name=passwordConf]{
     width: 100%;
 }
+.indeksNaslov{
+  margin-top: 60px;
+}
+.registerNaslov{
+  margin-top: 60px;
+  text-align: center;
+}
+.futer{
+  height: 400px;
+}

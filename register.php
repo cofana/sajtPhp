@@ -18,7 +18,7 @@
           <div class="col-lg-8 ftco-animate">
           </div>
           <div class="col-lg-8">
-            <h1 class="loginTekst">Registration</h1>
+            <h1 class="registerNaslov">Registration</h1>
             <form action="#" class="contact-form">
               <label for="firstName" class="labelLogin">First Name: </label>
               <div class="form-group">
