@@ -17,7 +17,7 @@
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">Fast &amp; Easy Way To Rent A Car</h1>
+	            <h1 class="mb-4 indeksTekst">Fast &amp; Easy Way To Rent A Car</h1>
             </div>
           </div>
           <div class="col-lg-8">
