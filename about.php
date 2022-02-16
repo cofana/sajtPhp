@@ -33,7 +33,7 @@
 	          	<span class="subheading">About us</span>
 	            <h2 class="mb-4">Welcome to Car Platz</h2>
 
-	            <p>Our firm was founded by our CEO <a href="#">Filip Blagojevic</a> back in 2005. Since then we rented our cars to more than 2000+ happy customers. Our cars are always up to date so you wont run into any problems.</p>
+	            <p>Our firm was founded by our CEO <a href="about_author.php">Filip Blagojevic</a> back in 2005. Since then we rented our cars to more than 2000+ happy customers. Our cars are always up to date so you wont run into any problems.</p>
 	          </div>
 					</div>
 				</div>
@@ -58,15 +58,15 @@
                   <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Since im not from Serbia, i always rent cars from Car Platz when i come here. Their prices are great and cars are like brand new</p>
                     <p class="name">Ilija Jovanovic</p>
-                    <span class="position">Marketing Manager</span>
+                    <span class="position">Private Firm Owner</span>
                   </div>
                 </div>
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img mb-2" style="background-image: url(images/person_3.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -77,7 +77,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img mb-2" style="background-image: url(images/person_4.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
