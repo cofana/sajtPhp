@@ -1,0 +1,38 @@
+.labelLogin{
+    color: #fff;
+    font-size: 20px;
+  }
+  input[name=username]{
+    width: 100%;
+  }
+  input[name=password]{
+    width: 100%;
+  }
+  .h2popular{
+    text-transform: uppercase;
+  }
+  .loginTekst{
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .book-btn{
+    margin-left: 80px;
+  }
+  input[name=firstName]{
+    width: 100%;
+  }
+  input[name=lastName]{
+    width: 100%;
+  }
+  input[name=email]{
+      width: 100%;
+  }
+  input[name=usernameR]{
+    width: 100%;
+}
+input[name=passwordR]{
+    width: 100%;
+}
+input[name=passwordConf]{
+    width: 100%;
+}
