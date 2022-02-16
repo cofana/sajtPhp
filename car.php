@@ -61,7 +61,7 @@
 	    						<span class="cat">Audi</span>
 	    						<p class="price ml-auto">$500 <span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="car-single.php" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
     					</div>
     				</div>
     			</div>
