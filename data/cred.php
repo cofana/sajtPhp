@@ -1,6 +1,6 @@
 <?php
     $serverName = "localhost";
-    $databaseName = "moj_sajt";
+    $databaseName = "moja_baza";
     $databaseUsername = "root";
     $databasePassword= "";
 ?>
