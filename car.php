@@ -31,27 +31,6 @@
 		<div class="container">
 			<div class="row">
 				<?php
-				/* include_once "data/connection.php";
-					global $con;
-					$query = "SELECT * FROM cars c INNER JOIN cars_brand cb on c.cars_brandID = cb.cars_brandID";
-					$cars = $con->query($query)->fetchAll();
-					if($con->query($query)->rowCount()>0){
-						foreach ($cars as $car) {
-							$output="<div class='col-md-4><div class='car-wrap rounded ftco-animate'><div class='img rounded d-flex align-items-end' style='background-image: url(images/Audi_A4_Avant.jpg);'>
-							</div><div class='text'>
-    						<h2 class='mb-0'><a href='$car->carsID'>$car->model</a></h2>
-    						<div class='d-flex mb-3'>
-	    						<span class='cat'>$car->name</span>
-	    						<p class='price ml-auto'>$$car->price <span>/day</span></p>
-    						</div>
-    						<p class='d-flex mb-0 d-block'><a href='#' class='btn btn-primary py-2 mr-1 book-btn'>Book now</a></p>
-    					</div></div></div>";
-							echo $output;
-						}
-					}
-					else{
-						echo "Nema nista";
-					} */
 				include_once("data/connection.php");
 				global $con;
 				$limit = 12;
@@ -67,7 +46,7 @@
 				$start = ($page - 1) * $limit;
 				$query = "SELECT *, cb.name as carName FROM cars c INNER JOIN images s on c.imageID = s.imageID  INNER JOIN cars_brand cb ON c.cars_brandID = cb.cars_brandID ORDER BY carsID LIMIT $start,$limit ";
 				$result = $con->query($query)->fetchAll();
-				#var_dump($result);
+
 				if ($result) {
 					$output = "";
 					foreach ($result as $res) {

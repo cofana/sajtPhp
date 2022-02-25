@@ -45,7 +45,7 @@
 				  <input type="password" id="passConf" name="passwordConf">
 			  </div>
               <div class="form-group">
-                <input type="button" id="registerButton" name="registerButton" value="Register">
+                <input type="button" id="registerButton" value="Register">
 				<input type="reset" id="resetButton" name="resetButton" value="Reset">
               </div>
 			  <h5 class="text-white">You already have an account? Log in <a href="index.php">here</a></h5>

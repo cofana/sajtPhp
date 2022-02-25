@@ -50,3 +50,6 @@ input[name=passwordConf]{
   width: 200px;
   height: 600px;
 }
+.errorMine{
+  border: 1px solid #ff0000;
+}
