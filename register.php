@@ -11,7 +11,7 @@
     include_once "includes/nav.php";
     ?>
     
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
@@ -22,7 +22,7 @@
             <form action="#" class="contact-form">
               <label for="firstName" class="labelLogin">First Name: </label>
               <div class="form-group">
-                <input type="text" id="name" name="firstName">
+                <input type="text" id="name" name="firstName" required>
               </div>
               <label for="lastName" class="labelLogin">Last Name: </label>
               <div class="form-group">

@@ -83,7 +83,7 @@
 
 						$output .= "<p class='d-flex mb-0 d-block'><a href='car-single.php' class='btn btn-primary py-2 mr-1 book-btn'>Book now</a></p> </div></div></div>";
 					}
-					$output .= "<div class='row mt-5'><div class='block-27'><div class='col text-center'><ul>";
+					$output .= "<div class='row mt-5'><div class='col text-center'><div class='block-27'><ul>";
 					for ($i = 1; $i <= $pageCount; $i++) {
 						$class = $page == $i ? 'active' : "";
 						$output .= "<li class='" . $class . "'><a href='car.php?&page=" . $i . "'>" . $i . "</a></li>";
@@ -95,51 +95,6 @@
 			</div>
 		</div>
 	</section>
-	<?php
-	/* include_once("data/connection.php");
-	global $con;
-	$limit = 12;
-	if (!isset($_GET['page'])) {
-		$page = 1;
-	} else {
-		$page = $_GET['page'];
-	}
-
-	$query = "SELECT * FROM cars c";
-	$rowCount = $con->query($query)->rowCount();
-	$pageCount = ceil($rowCount / $limit);
-	$start = ($page - 1) * $limit;
-	$query = "SELECT *, cb.name as carName FROM cars c INNER JOIN images s on c.imageID = s.imageID  INNER JOIN cars_brand cb ON c.cars_brandID = cb.cars_brandID ORDER BY carsID LIMIT $start,$limit ";
-	$result = $con->query($query)->fetchAll();
-	#var_dump($result);
-	if ($result) {
-		$output = "";
-		foreach ($result as $res) {
-			$output .= "<div class='col-md-4'>";
-			$output .= "<div class='car-wrap rounded ftco-animate'>";
-			$output .= "<div class='img rounded d-flex align-items-end' style='background-image: url(images/$res->path);'></div>";
-
-			$output .= "<div class='text'>";
-			$output .= "<h2 class='mb-0'><a href='car-single.php'>$res->model</a></h2>";
-			$output .= "<div class='d-flex mb-3'>";
-			$output .= "<span class='cat'>$res->carName</span>";
-			$output .= "<p class='price ml-auto'>$res->price <span>/day</span></p> </div>";
-
-			$output .= "<p class='d-flex mb-0 d-block'><a href='car-single.php' class='btn btn-primary py-2 mr-1 book-btn'>Book now</a></p> </div></div></div>";
-
-
-
-
-			$output .= "<ul style='display:flex;' class='pagination'>";
-			for ($i = 1; $i <= $pageCount; $i++) {
-				$class = $page == $i ? 'btn-active' : "";
-				$output .= "<li class='" . $class . "'><a class='btnPagePharmacy' href='car.php?&page=" . $i . "'>" . $i . "</a></li>";
-			}
-		}
-	}
-	$output .= "</ul>";
-	echo $output; */
-	?>
 	<?php
 	include_once "includes/footer.php";
 	include_once "includes/loader.php";
