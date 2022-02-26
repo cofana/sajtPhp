@@ -37,13 +37,46 @@ $(document).ready(function(){
             data: podaciZaSlanje,
             datatype: "json",
             success: function(result){
-                if(result==0){
-                    console.log("AAA");
-                }
+                $("#odgovor").html(`<p class="alert succRegister"> ${result.poruka} </p>`)
             },
             error: function(xhr){
                 console.error(xhr);
+                // if 500..
+                // if 404..
             }
         })
     })
+
+
+    //logovanje
+
+    $(document).on('click', '#btnLogovanje', function(){
+        let user, lozinka;
+        user = $('#user');
+        lozinka = $('$pass');
+        brojGresaka = 0;
+
+        //regularni izrazi
+
+        //provera
+
+        if(brojGresaka==0){
+
+        }
+    })
 })
+
+// ajax callback function
+function ajaxCallBack(url, method, result){
+    $.ajax({
+        url: url,
+        method: method,
+        dataType: "json",
+        success: result,
+        error: function(xhr){
+            console.log(xhr);
+            //if 500..
+            //if 404..
+        }
+    })
+}

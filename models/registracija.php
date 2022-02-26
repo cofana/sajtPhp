@@ -17,6 +17,7 @@
             $unosKorisnika = unosKorisnika($ime, $prezime, $email, $username, $lozinka);
             if($unosKorisnika){
 
+                
 
                 $odgovor = ["poruka" => "Uspesan unos"];
                 echo json_encode($odgovor);

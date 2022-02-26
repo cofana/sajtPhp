@@ -53,3 +53,12 @@ input[name=passwordConf]{
 .errorMine{
   border: 1px solid #ff0000;
 }
+.succRegister{
+  color: #20ff58;
+  background-color: #000;
+  border-color: #000;
+  border-radius: 5px;
+  width: 20%;
+  padding: 7px;
+  text-align: center;
+}

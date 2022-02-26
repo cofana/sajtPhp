@@ -1,7 +1,7 @@
 <?php
     function unosKorisnika($ime, $prezime, $email, $username, $lozinka){
         global $con;
-        $upit = "INSERT INTO users VALUES (null,:username, :lozinka, CURRENT_TIMESTAMP, :email, :ime, :prezime,1, null, null, null )";
+        $upit = "INSERT INTO users VALUES (null,:username, :lozinka, CURRENT_TIMESTAMP, :email, :ime, :prezime,1, 0, 0)";
 
         $priprema = $con->prepare($upit);
         $priprema->bindParam(':username', $username);

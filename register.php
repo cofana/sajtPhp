@@ -50,6 +50,7 @@
               </div>
 			  <h5 class="text-white">You already have an account? Log in <a href="index.php">here</a></h5>
             </form>
+            <div id="odgovor"></div>
           </div>
         </div>
       </div>

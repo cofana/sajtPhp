@@ -32,7 +32,7 @@
                 <input type="password" id="pass" name="password">
               </div>
               <div class="form-group">
-                <input type="submit" value="Log in">
+                <input type="button" value="Log in" id="btnLogovanje">
               </div>
             </form>
           </div>
