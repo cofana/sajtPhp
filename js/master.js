@@ -31,46 +31,41 @@ $(document).ready(function(){
             }
         }
 
-        $.ajax({
-            url: "models/registracija.php",
-            method: "post",
-            data: podaciZaSlanje,
-            datatype: "json",
-            success: function(result){
-                $("#odgovor").html(`<p class="alert succRegister"> ${result.poruka} </p>`)
-            },
-            error: function(xhr){
-                console.error(xhr);
-                // if 500..
-                // if 404..
-            }
+        ajaxCallBack("models/registracija.php", "post", podaciZaSlanje, function(result){
+            $("#odgovor").html(`<p class="alert succRegister"> ${result.poruka} </p>`)
         })
+
+        
     })
 
 
     //logovanje
 
-    $(document).on('click', '#btnLogovanje', function(){
-        let user, lozinka;
-        user = $('#user');
-        lozinka = $('$pass');
-        brojGresaka = 0;
-
+    $(document).on('click', '#loginButton', function(){
+        let brojGresaka = 0;
         //regularni izrazi
 
         //provera
-
+        var podaciZaSlanje;
         if(brojGresaka==0){
-
+            podaciZaSlanje={
+                user: $("#user").val(),
+                pass: $("#pass").val()
+            }
+            ajaxCallBack("models/logovanje.php", "post", podaciZaSlanje, function(result){
+                console.log(result)
+                // $("#odgovor").html(`<p class="alert succRegister"> ${result.poruka} </p>`)
+            })
         }
     })
 })
 
 // ajax callback function
-function ajaxCallBack(url, method, result){
+function ajaxCallBack(url, method, data, result){
     $.ajax({
         url: url,
         method: method,
+        data: data,
         dataType: "json",
         success: result,
         error: function(xhr){

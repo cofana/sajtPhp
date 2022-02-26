@@ -13,6 +13,13 @@
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 			<li class="nav-item"><a href="about_author.php" class="nav-link">About Author</a></li>
+			<?php
+				if(isset($_SESSION['korisnik'])):
+			?>
+			<li class="nav-item"><a href="../models/log_out.php" class="nav-link">Log out</a></li>
+			<?php
+				endif;
+			?>
 	        </ul>
 	      </div>
 	    </div>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php
+    session_start();
     include_once "includes/head.php";
     ?>
 </head>

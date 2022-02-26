@@ -21,35 +21,16 @@
 	            <h1 class="mb-4 indeksNaslov">Fast &amp; Easy Way To Rent A Car</h1>
             </div>
           </div>
-          <div class="col-lg-8">
-            <h1 class="loginTekst">Log in</h1>
-            <form action="#" class="contact-form">
-              <label for="username" class="labelLogin">Username: </label>
-              <div class="form-group">
-                <input type="text" id="user" name="username">
-              </div>
-              <label for="password" class="labelLogin">Password: </label>
-              <div class="form-group">
-                <input type="password" id="pass" name="password">
-              </div>
-              <div class="form-group">
-                <input type="button" value="Log in" id="loginButton">
-              </div>
-            </form>
+          <?php
+            if(isset($_SESSION['korisnik'])){
+                $korisnik = $_SESSION['korisnik'];
 
-			<?php
-				if(isset($_SESSION['korisnik'])){
-					$korisnik = $_SESSION['korisnik'];
-					if($korisnik->role == "administrator"){
-						echo "<a href='admin.php'>Stranica za admina</a>";
-					}
-					if($korisnik->role == "user"){
-						echo "<a href='korisnik.php'>Stranica za korisnika</a>";
-					}
-				}
-			?>
-
-          </div>
+                if($korisnik->role == "administrator"){
+                    echo "Hello Administrator";
+                }
+            }
+          
+          ?>
         </div>
       </div>
     </div>
