@@ -10,6 +10,7 @@
     
 	  <?php
     include_once "includes/nav.php";
+	include_once "data/connection.php";
     ?>
     
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -22,11 +23,15 @@
             </div>
           </div>
           <?php
+		 	global $con;
+			$query = "SELECT * FROM users u INNER JOIN roles r ON u.roleID = r.roleID WHERE u.roleID = '2'";
+			
             if(isset($_SESSION['korisnik'])){
                 $korisnik = $_SESSION['korisnik'];
 
                 if($korisnik->role == "administrator"){
-                    echo "Hello Administrator";
+
+                    echo "Hello ";
                 }
             }
           

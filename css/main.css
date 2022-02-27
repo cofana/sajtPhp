@@ -62,3 +62,17 @@ input[name=passwordConf]{
   padding: 7px;
   text-align: center;
 }
+#car-body-icon, #car-mileage-icon, #car-transmission-icon, #top-speed-icon, #car-fuel-icon, #car-kilowats-icon, #car-seat-icon {
+  height: 60px;
+}
+#car-drive-icon{
+  height: 50px;
+}
+.car-single-buy.row{
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+.dugmeKupi{
+  margin-left: -10px;
+}
