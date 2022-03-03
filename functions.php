@@ -26,4 +26,10 @@
         $rezultat = $priprema->fetch();
         return $rezultat;
     }
+    $errors = array();
+    function check($regex, $input, $error){
+        if(!isset($input) or empty($input) or !preg_match($regex,$input)){
+            array_push($errors, $error);
+        }
+    }
 ?>

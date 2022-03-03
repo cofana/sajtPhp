@@ -6,6 +6,8 @@
             
             include_once "../data/connection.php";
             include_once "../functions.php";
+            include_once "regex.php";
+            
             $ime = $_POST['ime'];
             $prezime = $_POST['prezime'];
             $email = $_POST['email'];

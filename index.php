@@ -10,6 +10,7 @@
     
 	  <?php
     include_once "includes/nav.php";
+	
     ?>
     
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -17,11 +18,14 @@
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
-          	<div class="text w-100 text-center mb-md-5 pb-md-5">
+          	<div class="text w-100 text-center ">
 	            <h1 class="mb-4 indeksNaslov">Fast &amp; Easy Way To Rent A Car</h1>
             </div>
           </div>
-          <div class="col-lg-8">
+		  <?php
+		  if(!isset($_SESSION['korisnik'])){
+			  ?>
+			   <div class="col-lg-8">
             <h1 class="loginTekst">Log in</h1>
             <form action="#" class="contact-form">
               <label for="username" class="labelLogin">Username: </label>
@@ -36,23 +40,34 @@
                 <input type="button" value="Log in" id="loginButton">
               </div>
             </form>
+			  <?php
+		  
+		  }
+		  ?>
+         
 
-			<?php
-				if(isset($_SESSION['korisnik'])){
-					$korisnik = $_SESSION['korisnik'];
-					if($korisnik->role == "administrator"){
-						echo "<a href='admin.php'>Stranica za admina</a>";
-					}
-					if($korisnik->role == "user"){
-						echo "<a href='korisnik.php'>Stranica za korisnika</a>";
-					}
-				}
-			?>
+			<!-- <?php
+				// if(isset($_SESSION['korisnik'])){
+				// 	$korisnik = $_SESSION['korisnik'];
+				// 	if($korisnik->role == "administrator"){
+				// 		echo "<a href='admin.php'>Stranica za admina</a>";
+				// 	}
+				// 	if($korisnik->role == "user"){
+				// 		echo "<a href='korisnik.php'>Stranica za korisnika</a>";
+				
+					
+			?> -->
 
           </div>
         </div>
       </div>
     </div>
+
+	<?php
+
+
+
+	?>
 
     <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">

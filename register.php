@@ -23,27 +23,33 @@
             <form action="#" class="contact-form">
               <label for="firstName" class="labelLogin">First Name: </label>
               <div class="form-group">
-                <input type="text" id="name" name="firstName" required>
+                <input type="text" id="name" name="firstName">
+                <div id="imeError"></div>
               </div>
               <label for="lastName" class="labelLogin">Last Name: </label>
               <div class="form-group">
                 <input type="text" id="lastname" name="lastName">
+                <div id="prezimeError"></div>
               </div>
 			  <label for="email" class="labelLogin">Email: </label>
 			  <div class="form-group">
 				  <input type="email" id="mail" name="email">
+          <div id="emailError"></div>
 			  </div>
 			  <label for="usernameR" class="labelLogin">Username: </label>
 			  <div class="form-group">
 				  <input type="text" id="userR" name="usernameR">
+          <div id="userError"></div>
 			  </div>
 			  <label for="passwordR" class="labelLogin">Password: </label>
 			  <div class="form-group">
 				  <input type="password" id="passR" name="passwordR">
+          <div id="passError"></div>
 			  </div>
 			  <label for="passwordConf" class="labelLogin">Confirm Password: </label>
 			  <div class="form-group">
 				  <input type="password" id="passConf" name="passwordConf">
+          <div id="passConfError"></div>
 			  </div>
               <div class="form-group">
                 <input type="button" id="registerButton" value="Register">

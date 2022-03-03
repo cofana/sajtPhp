@@ -25,16 +25,37 @@
       </div>
     </section>
 		
+	<?php
 
+		global $con;
+		$id = +$_GET["id"];
+		
+		$queryForImage = "SELECT * FROM cars c INNER JOIN images i ON c.imageID = i.imageID WHERE carsID = $id";
+		$image = $con->query($queryForImage)->fetch();
+		$queryForModel = "SELECT * FROM cars where carsID = $id";
+		$model = $con->query($queryForModel)->fetch();
+		$queryForBrand = "SELECT * FROM cars c INNER JOIN cars_brand cb ON c.cars_brandID = cb.cars_brandID WHERE carsID = $id";
+		$brand = $con->query($queryForBrand)->fetch();
+		$queryForTransmission = "SELECT * FROM cars c INNER JOIN transmission t ON c.transmissionID = t.transmissionID WHERE carsID = $id";
+		$transmission = $con->query($queryForTransmission)->fetch();
+		$queryForFuel = "SELECT * FROM cars c INNER JOIN fuel f ON c.fuelID = f.fuelID WHERE carsID = $id";
+		$fuel = $con->query($queryForFuel)->fetch();
+		$queryForBody = "SELECT * FROM cars c INNER JOIN cars_body cab ON c.cars_bodyID = cab.cars_bodyID WHERE carsID = $id";
+		$body = $con->query($queryForBody)->fetch();
+		$queryForDrive = "SELECT * FROM cars c INNER JOIN drive d ON c.driveID = d.driveID WHERE carsID = $id";
+		$drive = $con->query($queryForDrive)->fetch();
+
+
+	?>
 	<section class="ftco-section ftco-car-details">
       <div class="container">
       	<div class="row justify-content-center">
       		<div class="col-md-12">
       			<div class="car-details">
-      				<div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div> <!-- ucitavanje za sliku -->
+      				<div class="img rounded" style="background-image: url(images/<?php echo $image->path; ?>);"></div> <!-- ucitavanje za sliku -->
       				<div class="text text-center">
-      					<span class="subheading">Ime proizvodjaca</span>
-      					<h2>Ime modela</h2>
+      					<span class="subheading"><?php echo $brand->name ?></span>
+      					<h2><?php echo $model->model ?></h2>
       				</div>
       			</div>
       		</div>
@@ -48,7 +69,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Mileage
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $model->km ?> km</span>
 		                </h3>
 	                </div>
                 </div>
@@ -63,7 +84,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Transmission
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $transmission->name ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -79,7 +100,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Top Speed
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $model->top_speed ?> km/h</span>
 		                </h3>
 	                </div>
                 </div>
@@ -94,7 +115,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Fuel
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $fuel->name ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -111,7 +132,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Car Body
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $body->name ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -126,7 +147,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Drive
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $drive->name ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -141,7 +162,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	KW
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $model->kw ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -156,7 +177,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Seats
-		                	<span>Ispis iz baze</span>
+		                	<span><?php echo $model->seatsNumber ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -167,7 +188,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center justify-content-center">
-					<a href='car-single.php' class='btn btn-primary py-2 mr-1 book-btn dugmeKupi'>Book now</a>
+				
+					<a href='car-final.php?id=<?php echo $id?>' class='btn btn-primary py-2 mr-1 book-btn dugmeKupi'>Book now</a>
 				</div>
 			</div>
 		</div>
