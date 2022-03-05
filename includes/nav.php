@@ -16,7 +16,7 @@
 			<?php
 				if(isset($_SESSION['korisnik'])):
 			?>
-			<li class="nav-item"><form action="models/log_out.php" method="POST"><button class="btn nav-link">Log out</button></form></li>
+			<li class="nav-item"><form class='logoutbtn' action="models/log_out.php" method="POST"><button class="btn nav-link">Log out</button></form></li>
 			<?php
 				endif;
 			?>

@@ -82,3 +82,56 @@ input[name=passwordConf]{
 #dolarSpan{
   color: #20ff58;
 }
+#imeError, #prezimeError, #emailError, #userError, #passError, #passConfError{
+  color: red;
+}
+.tableAdminPanel{
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: rgb(184, 226, 222);
+  
+}
+
+.center-div {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  max-height: 600px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+footer {
+  width: 100%;
+  left: 50%;bottom: 0%;
+  transform: translate(-50%,0%);
+
+}
+.container-fluid {
+  height: 100%;
+}
+
+/*____   ____ ____   ___  _     _     
+ / ___| / ___|  _ \ / _ \| |   | |    
+ \___ \| |   | |_) | | | | |   | |    
+  ___) | |___|  _ <| |_| | |___| |___ 
+ |____/ \____|_| \_\\___/|_____|_____|                                      
+*/
+/* Sa shadowom */
+.center-div::-webkit-scrollbar{width:10px!important;height:8px;cursor:grabbing!important;}
+.center-div::-webkit-scrollbar-track{
+  border-radius:15px;
+  margin-top:5px;
+  margin-bottom:10px;cursor:grabbing!important;
+  box-shadow:inset 0 0 6px rgba(0,0,0,0.3)!important; 
+  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3)!important; 
+}
+.center-div::-webkit-scrollbar-thumb{
+  background:var(--blue);cursor:grabbing!important;border-radius:15px;
+}
+/* Bez shadowa */
+.scroll2{unicode-bidi:bidi-override;direction:ltr;}
+.scroll2::-webkit-scrollbar{direction:rtl;width: 10px!important;height:8px;cursor:grabbing!important;}
+.scroll2::-webkit-scrollbar-track{
+  margin-top:5px;margin-bottom:10px;cursor:grabbing!important;border-radius:15px;
+}
+.scroll2::-webkit-scrollbar-thumb{background: var(--blue);cursor:grabbing!important;border-radius:15px;}

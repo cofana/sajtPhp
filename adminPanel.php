@@ -23,6 +23,7 @@ if (isset($_SESSION['korisnik'])) {
                     <button id='cars_brand' class='font-weight-bold btn bg-light text-dark'>cars_brand</button>
                     <button id='contact' class='font-weight-bold btn bg-light text-dark'>contact</button>
                     <button id='drive' class='font-weight-bold btn bg-light text-dark'>drive</button>
+                    <button id='drive' class='font-weight-bold btn bg-light text-dark'>fuel</button>
                     <button id='images'class='font-weight-bold btn bg-light text-dark'>images</button>
                     <button id='menu' class='font-weight-bold btn bg-light text-dark'>menu</button>
                     <button id='roles' class='font-weight-bold btn bg-light text-dark'>roles</button>
@@ -32,8 +33,8 @@ if (isset($_SESSION['korisnik'])) {
                     <button id='users_cars' class='font-weight-bold btn bg-light text-dark'>users_cars</button>
                     
                 </div>
-                <div class="col-lg-11">
-                    <table id='table' class='table'>
+                <div class="col-lg-11 center-div">
+                    <table id='table' class='table tableAdminPanel'>
                     </table>
                     <h5 class='text-success text-center p-3 font-weight-bold' id='success'></h5>
                     <h5 class='text-danger text-center p-3 font-weight-bold' id='error'></h5>

@@ -7,14 +7,14 @@
             include_once "../data/connection.php";
             include_once "../functions.php";
             include_once "regex.php";
-            
+
             $ime = $_POST['ime'];
             $prezime = $_POST['prezime'];
             $email = $_POST['email'];
             $username = $_POST['username'];
             $lozinka = md5($_POST['lozinka']);
 
-
+            
 
             $unosKorisnika = unosKorisnika($ime, $prezime, $email, $username, $lozinka);
             if($unosKorisnika){
