@@ -40,7 +40,6 @@
                     <td>$r->lastName</td>
                     <td>$r->roleID</td>
                     <td>$r->active</td>
-                    <td>$r->code</td>
                     <td>$r->voted</td>
                     <td><input type='button' class='btn btn-dark' colspan='2' name='deleteUser' id='$r->userID' value='Delete'></td>
                     </tr>";

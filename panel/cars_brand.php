@@ -16,8 +16,8 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='carsBrandName' placeholder='Cars brand'></td>
-                <td colspan='2'><input type='button' id='insertCarsBrand' class='btn btn-dark w-75' value='Insert'></td>
+                <td><button type='text' id='carsBrandName' placeholder='Cars brand'></td>
+                <td colspan='2'><button id='insertCarsBrand' class='btn btn-dark w-75' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>cars_brandID</td>
@@ -30,8 +30,8 @@
                     $return .="<tr>
                     <td>$r->cars_brandID</td>
                     <td><input type='text' value='$r->name'></td>
-                    <td><input type='button' class='btn btn-dark' name='updateCarsBrand' id='$r->cars_brandID' value='Update'></td>
-                    <td><input type='button' class='btn btn-dark' name='deleteCarsBrand' id='$r->cars_brandID' value='Delete'</td>
+                    <td><input type='button' class='btn btn-dark dugmesisa' name='updateCarsBrand' id='$r->cars_brandID' value='Update'></td>
+                    <td><input type='button' class='btn btn-dark dugmesisa' name='deleteCarsBrand' id='$r->cars_brandID' value='Delete'</td>
                     </tr>";
                 }
                 echo json_encode($return);

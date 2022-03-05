@@ -96,6 +96,7 @@ input[name=passwordConf]{
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   max-height: 600px;
   overflow: hidden;
   overflow-y: auto;
@@ -109,7 +110,22 @@ footer {
 .container-fluid {
   height: 100%;
 }
-
+.text-success,
+.text-danger {
+  position: absolute;z-index: 9999;
+  background: white;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 20%;
+  max-height: 20%;
+  top: 50%;left: calc(50% + 0px);
+  transform: translate(-50%, -50%);
+  font-family:'Poppins',sans-serif;
+  width: 90%; margin: 0 auto;
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,.2);
+}
 /*____   ____ ____   ___  _     _     
  / ___| / ___|  _ \ / _ \| |   | |    
  \___ \| |   | |_) | | | | |   | |    

@@ -11,6 +11,7 @@
             <li class="nav-item"><a href="register.php" class="nav-link">Register</a></li>
 	          <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+			  <li class="nav-item"><a href="adminPanel.php" class="nav-link">Admin Panel</a></li>
             <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 			<li class="nav-item"><a href="about_author.php" class="nav-link">About Author</a></li>
 			<?php

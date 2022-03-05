@@ -485,6 +485,546 @@ $(document).on("click", "input[name='deleteContact']", function () {
     },
   });
 });
+$("#drive").click(function () {
+  showTable("drive.php");
+});
+//INSERT DRIVE
+$(document).on("click", "#insertDrive", function (e) {
+  var name = $("#driveName").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertDrive.php",
+    data: {
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("drive.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("drive.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//DELETE DRIVE
+$(document).on("click", "input[name='deleteDrive']", function () {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteDrive.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("drive.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("drive.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+// UPDATE DRIVE
+$(document).on("click", "input[name='updateDrive']", function (e) {
+  var driveID = $(this).attr("id");
+  var name = $(this).parent().parent().find("td:nth-child(2) input").val();
+  $.ajax({
+    type: "POST",
+    url: "models/updateDrive.php",
+    data: {
+      driveIDPHP: driveID,
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("drive.php");
+        $("#success").text("Successfully updated.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("drive.php");
+      $("#error").text("Update failed. Please insert valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+$("#images").click(function (e) {
+  showTable("images.php");
+});
+//DELETE IMAGE
+$(document).on("click", "input[name='deleteImage']", function (e) {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteImage.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("images.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("images.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//INSERT IMAGE
+$(document).on("click", "#insertImage", function (e) {
+  var path = $("#image").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertImage.php",
+    data: {
+      pathPHP: path,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("images.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("images.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+})
+$("#menu").click(function (e) {
+  showTable("menu.php");
+});
+//INSERT MENU
+$(document).on("click", "#insertMenu", function () {
+  var href = $("#href").val();
+  var title = $("#title").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertMenu.php",
+    data: {
+      hrefPHP: href,
+      titlePHP: title,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("menu.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("menu.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//DELETE MENU
+$(document).on("click", "input[name='deleteMenu']", function (e) {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteMenu.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("menu.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("menu.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//UPDATE MENU
+$(document).on("click", "input[name='updateMenu']", function (e) {
+  var menuID = $(this).attr("id");
+  var href = $(this).parent().parent().find("td:nth-child(2) input").val();
+  var title = $(this).parent().parent().find("td:nth-child(3) input").val();
+  $.ajax({
+    type: "POST",
+    url: "models/updateMenu.php",
+    data: {
+      menuIDPHP: menuID,
+      hrefPHP: href,
+      titlePHP: titlePHP,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("menu.php");
+        $("#success").text("Successfully updated.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("menu.php");
+      $("#error").text("Update failed. Please insert valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+$("#roles").click(function () {
+  showTable("roles.php");
+});
+//INSERT ROLES
+$(document).on("click", "#insertRole", function (e) {
+  var name = $("#role").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertRole.php",
+    data: {
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("roles.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("roles.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//DELETE ROLE
+$(document).on("click", "input[name='deleteRole']", function () {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteRole.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("roles.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("roles.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+$("#survey").click(function () {
+  showTable("survey.php");
+});
+//INSERT SURVEY
+$(document).on("click", "#insertSurvey", function (e) {
+  var name = $("#question").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertSurvey.php",
+    data: {
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("survey.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("survey.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//DELETE SURVEY
+$(document).on("click", "input[name='deleteSurvey']", function () {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteSurvey.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("survey.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("survey.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//UPDATE SURVEY
+$(document).on("click", "input[name='updateSurvey']", function (e) {
+  var surveyID = $(this).attr("id");
+  var name = $(this).parent().parent().find("td:nth-child(2) input").val();
+  $.ajax({
+    type: "POST",
+    url: "models/updateSurvey.php",
+    data: {
+      surveyIDPHP: surveyID,
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("survey.php");
+        $("#success").text("Successfully updated.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("survey.php");
+      $("#error").text("Update failed. Please insert valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+$("#transmission").click(function () {
+  showTable("transmission.php");
+});
+//INSERT TRANSMISSION
+$(document).on("click", "#insertTransmission", function (e) {
+  var name = $("#transmissionName").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertTransmission.php",
+    data: {
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("transmission.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("transmission.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//DELETE TRANSMISSION
+$(document).on("click", "input[name='deleteTransmission']", function () {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteTransmission.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("transmission.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("transmission.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//UPDATE TRANSMISSION
+$(document).on("click", "input[name='updateTransmission']", function (e) {
+  var transmissionID = $(this).attr("id");
+  var name = $(this).parent().parent().find("td:nth-child(2) input").val();
+  $.ajax({
+    type: "POST",
+    url: "models/updateTransmission.php",
+    data: {
+      transmissionIDPHP: transmissionID,
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("transmission.php");
+        $("#success").text("Successfully updated.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("transmission.php");
+      $("#error").text("Update failed. Please insert valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+$("#users_cars").click(function (e) {
+  showTable("users_cars.php");
+});
+//DELETE USERS_CARS
+$(document).on("click", "input[name='deleteUsersCars']", function () {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteUsersCars.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("users_cars.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("users_cars.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+$("#users").click(function (e) {
+  showTable("users.php");
+});
+//DELETE USER
+$(document).on("click", "input[name='deleteUser']", function (e) {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteUser.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("users.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("users.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
 
   function showTable(href) {
     $.ajax({

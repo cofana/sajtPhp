@@ -36,8 +36,8 @@ if (isset($_SESSION['korisnik'])) {
                 <div class="col-lg-11 center-div">
                     <table id='table' class='table tableAdminPanel'>
                     </table>
-                    <h5 class='text-success text-center p-3 font-weight-bold' id='success'></h5>
-                    <h5 class='text-danger text-center p-3 font-weight-bold' id='error'></h5>
+                    <h5 class='text-success' id='success'></h5>
+                    <h5 class='text-danger' id='error'></h5>
                 </div>
             </div>
         </div>
