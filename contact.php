@@ -34,7 +34,7 @@
 			          	<div class="icon mr-3">
 			          		<span class="icon-map-o"></span>
 			          	</div>
-			            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+			            <p><span>Address:</span> Bulevar Mihajla Pupina 45</p>
 			          </div>
 		          </div>
 		          <div class="col-md-12">
@@ -42,7 +42,8 @@
 			          	<div class="icon mr-3">
 			          		<span class="icon-mobile-phone"></span>
 			          	</div>
-			            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+			            <p><span>Phone:</span> <a href="tel://1234567920">+381/69 8765 475
+</a></p>
 			          </div>
 		          </div>
 		          <div class="col-md-12">
@@ -50,37 +51,38 @@
 			          	<div class="icon mr-3">
 			          		<span class="icon-envelope-o"></span>
 			          	</div>
-			            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+			            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@carplatz.com</a></p>
 			          </div>
 		          </div>
 		        </div>
           </div>
           <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
+            <form action="" method="POST" class="bg-light p-5 contact-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" id="firstName" name="ime" class="form-control" placeholder="First Name">
+                <span class="text" id="firstNameError"></span>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
+                <input type="text" id="lastName" name="prezime" class="form-control" placeholder="Last Name">
+                <span class="text" id="lastNameError"></span>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
+                <input type="email" id="email" name="mail" class="form-control" placeholder="Email">
+                <span class="text" id="emailError"></span>
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                <textarea name="mess" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                <span class="text" id="messageError"></span>
               </div>
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <input type="button" value="Send Message" id="contactButton" name="contactButton" class="btn btn-primary py-3 px-5">
+                <span id="response" class="text text-center h6 m-4"></span>
               </div>
             </form>
           
           </div>
         </div>
-        <div class="row justify-content-center">
-        	<div class="col-md-12">
-        		<div id="map" class="bg-white"></div>
-        	</div>
-        </div>
+        
       </div>
     </section>
 	

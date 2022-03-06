@@ -9,5 +9,5 @@
     define("ERROR_EMAIL" ,"Email is not in valid format.  Example: john123@gmail.com");
     define("ERROR_USERNAME", "Username needs to start with a letter and length of minimum 3");
     define("ERROR_PASSWORD", "Password needs to have at least one big letter, one number and length of minimum 8");
-    define("ERROR_MESSAGE","Message needs to be at least 30 characters long");
+    define("ERROR_MESSAGE","Message needs to be at least 15 characters long");
 ?>

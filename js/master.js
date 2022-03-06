@@ -87,7 +87,7 @@ $(document).ready(function(){
             })
         }
     })
-})
+
 
 // ajax callback function
 function ajaxCallBack(url, method, data, result){
@@ -104,6 +104,53 @@ function ajaxCallBack(url, method, data, result){
         }
     })
 }
+
+$("#contactButton").click(function () {
+  
+  const ERROR_MESSAGE = "Message needs to be at least 15 characters long";
+  errors = [];
+  var firstName = $("#firstName").val();
+  var lastName = $("#lastName").val();
+  var email = $("#email").val();
+  var message = $("#message");
+  
+  var firstNameError = $("#firstNameError");
+  var lastNameError = $("#lastNameError");
+  var emailError = $("#emailError");
+  var messageError = $("#messageError");
+  firstNameError.text("");
+  lastNameError.text("");
+  emailError.text("");
+  messageError.text("");
+  check(firstName,regImePrezime,IME_ERROR,firstNameError);
+  check(lastName, regImePrezime,PREZIME_ERROR, lastNameError);
+  check(email, regEmail, EMAIL_ERROR, emailError);
+  
+  if (message.val().length < 15) {
+    errors.push(ERROR_MESSAGE);
+    messageError.text(ERROR_MESSAGE);
+  }
+  console.log(errors.length);
+  if (errors.length == 0) {
+    $.ajax({
+      method: "POST",
+      url: "models/sendContact.php",
+      data: {
+        firstNamePHP: firstName,
+        lastNamePHP: lastName,
+        emailPHP: email,
+        messagePHP: message.val(),
+      },
+      dataType: "json",
+      success: function (response) {
+        console.log(response);
+        $("#response").text(
+          "Message was succesfully sent."
+        );
+      },
+    });
+  }
+});
 var adminPanelErrorMessage = $("#error");
 $("#answers").click(function (e) {
   showTable("answers.php");
@@ -1036,3 +1083,4 @@ $(document).on("click", "input[name='deleteUser']", function (e) {
       },
     });
   }
+})

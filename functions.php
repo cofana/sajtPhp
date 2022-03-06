@@ -27,11 +27,22 @@
         return $rezultat;
     }
     
-    function check($regex, $input, $error, $errors){
+    function check($regex, $input, $error){
         $errors = [];
         if(!isset($input) or empty($input) or !preg_match($regex,$input)){
             array_push($errors, $error);
         }
+    }
+    function insertContact($firstName,$lastName,$email,$message){
+        global $con;
+        $query = "INSERT INTO contact VALUES(null, :firstName,:lastName, :email,:message)";
+        $prepared = $con ->prepare($query);
+        $prepared ->bindParam(":firstName", $firstName);
+        $prepared ->bindParam(":lastName", $lastName);
+        $prepared ->bindParam(":email", $email);
+        $prepared ->bindParam(":message", $message);
+        $result = $prepared ->execute();
+        return $result;
     }
     function showTable($ID){
         global $con;

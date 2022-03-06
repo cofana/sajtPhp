@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <?php
+    if(!isset($_SESSION)){
+      session_start();
+    }
+    if(!isset($_SESSION["korisnik"])){
+      header("Location: index.php");
+    }
     include_once "includes/head.php";
     ?>
 </head>
@@ -35,15 +41,8 @@
 		$model = $con->query($queryForModel)->fetch();
 		$queryForBrand = "SELECT * FROM cars c INNER JOIN cars_brand cb ON c.cars_brandID = cb.cars_brandID WHERE carsID = $id";
 		$brand = $con->query($queryForBrand)->fetch();
-		$queryForTransmission = "SELECT * FROM cars c INNER JOIN transmission t ON c.transmissionID = t.transmissionID WHERE carsID = $id";
-		$transmission = $con->query($queryForTransmission)->fetch();
-		$queryForFuel = "SELECT * FROM cars c INNER JOIN fuel f ON c.fuelID = f.fuelID WHERE carsID = $id";
-		$fuel = $con->query($queryForFuel)->fetch();
-		$queryForBody = "SELECT * FROM cars c INNER JOIN cars_body cab ON c.cars_bodyID = cab.cars_bodyID WHERE carsID = $id";
-		$body = $con->query($queryForBody)->fetch();
-		$queryForDrive = "SELECT * FROM cars c INNER JOIN drive d ON c.driveID = d.driveID WHERE carsID = $id";
-		$drive = $con->query($queryForDrive)->fetch();
-
+		
+		
 	?>
 	<section class="ftco-section ftco-car-details">
       <div class="container">
