@@ -46,29 +46,14 @@
 		  ?>
          
 
-			<!-- <?php
-				// if(isset($_SESSION['korisnik'])){
-				// 	$korisnik = $_SESSION['korisnik'];
-				// 	if($korisnik->role == "administrator"){
-				// 		echo "<a href='admin.php'>Stranica za admina</a>";
-				// 	}
-				// 	if($korisnik->role == "user"){
-				// 		echo "<a href='korisnik.php'>Stranica za korisnika</a>";
-				
-					
-			?> -->
+			
 
           </div>
         </div>
       </div>
     </div>
 
-	<?php
-
-		
-
-	?>
-
+	
     <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row justify-content-center">
@@ -77,24 +62,42 @@
             <h2 class="mb-2 h2popular">Our most popular cars</h2>
           </div>
         </div>
-    		<div class="row">
+		<?php
+
+		include_once "data/connection.php";
+		global $con;
+		$query = "SELECT * FROM cars c INNER JOIN images i on c.imageID=i.imageID INNER JOIN cars_brand cb on c.cars_brandID = cb.cars_brandID WHERE c.carsID = 2 AND c.carsID = 11 AND c.carsID = 23 AND c.carsID = 24";
+		$result = $con->query($query)->fetchAll();
+
+		if($result){
+			?>
+			<div class="row">
     			<div class="col-md-12">
     				<div class="carousel-car owl-carousel">
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/volkswagen_golf-7-GTI.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/volkswagen_arteon);">
 		    					</div>
 		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Golf 7 GTI</a></h2>
+		    						<h2 class="mb-0"><?php echo $res->model ?></h2>
 		    						<div class="d-flex mb-3">
-			    						<span class="cat">Volkswagen</span>
-			    						<p class="price ml-auto">$24 <span>/day</span></p>
+			    						<span class="cat"><?php echo $res->name ?></span>
+			    						<p class="price ml-auto">$<?php echo $res->price ?> <span>/day</span></p>
 		    						</div>
 		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
 		    					</div>
 		    				</div>
     					</div>
-    					<div class="item">
+					</div>
+				</div>
+			</div>
+		
+		<?php
+		}
+	?>
+
+    		
+    					<!-- <div class="item">
     						<div class="car-wrap rounded ftco-animate">
 		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/Audi_A8.jpg);">
 		    					</div>
@@ -138,8 +141,8 @@
     					</div>
     				</div>
     			</div>
-    		</div>
-    	</div>
+    		</div> -->
+		</div>
     </section>
     
     <?php
