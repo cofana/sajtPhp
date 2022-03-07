@@ -31,6 +31,13 @@
 	<section class="ftco-section bg-light">
 		<div class="container">
 			<div class="row">
+				<form class="form-inline searchForma" id='searchForm'>
+					<input class="form-control mr-sm-2 relative" type="search" id='search' placeholder="Search">
+					<div id="results" class='absolute'>No Results</div>
+				</form>
+			</div>
+			<div class="row">
+
 				<?php
 				include_once("data/connection.php");
 				global $con;
@@ -63,7 +70,7 @@
 
 						$output .= "<p class='d-flex mb-0 d-block'><a href='car-single.php?id=$res->carsID' class='btn btn-primary py-2 mr-1 book-btn'>Book now</a></p> </div></div></div>";
 					}
-					$output .= "<div class='row mt-5'><div class='col text-center'><div class='block-27'><ul>";
+					$output .= "<div class='row mt-5'><div class='col-lg-12 text-center blokZaCentriranje'><div class='block-27'><ul>";
 					for ($i = 1; $i <= $pageCount; $i++) {
 						$class = $page == $i ? 'active' : "";
 						$output .= "<li class='" . $class . "'><a href='car.php?&page=" . $i . "'>" . $i . "</a></li>";

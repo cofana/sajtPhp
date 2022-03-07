@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.php">Car <span>Platz</span></a>
@@ -7,20 +8,48 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="register.php" class="nav-link">Register</a></li>
-	          <li class="nav-item"><a href="car.php" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-			  <li class="nav-item"><a href="adminPanel.php" class="nav-link">Admin Panel</a></li>
-            <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
-			<li class="nav-item"><a href="about_author.php" class="nav-link">About Author</a></li>
 			<?php
-				if(isset($_SESSION['korisnik'])):
-			?>
-			<li class="nav-item"><form class='logoutbtn' action="models/log_out.php" method="POST"><button class="btn nav-link">Log out</button></form></li>
-			<?php
-				endif;
-			?>
+                        try {
+
+                            include_once("data/connection.php");
+                            global $con;
+                            $output = "";
+                            $upit = "SELECT * FROM menu";
+                            $navigacija = $con->query($upit)->fetchAll();
+                            if ($con->query($upit)->rowCount() > 0 and $navigacija) {
+                                foreach ($navigacija as $red) {
+                                    if (!isset($_SESSION["korisnik"])) {
+                                        $output .= "<li class='nav-item'><a href='$red->href' class='nav-link'>$red->title</a></li>";
+                                    } else {
+                                        if (!in_array($red->href, ["login.php", "register.php"]))
+                                            $output .= "<li class='nav-item'><a href='$red->href' class='nav-link'>$red->title</a></li>";
+                                    }
+                                }
+                                echo $output;
+                            } else {
+                                echo "Nema menija";
+                            }
+                        } catch (PDOException $e) {
+                            echo "Greska sa serverom";
+                            http_response_code(500);
+                        }
+                        ?>
+						                        <?php
+                        #var_dump($_SESSION["korisnik"]);
+                        if (isset($_SESSION['korisnik']) && $_SESSION['korisnik']->role == "administrator") :
+                        ?>
+                            <li><a id="apLink" class="nav-link logoutbtn adminPanelBoja" href="adminPanel.php">Admin panel</a></li>
+                        <?php
+                        endif;
+                        ?>
+                        <?php
+                        #var_dump($_SESSION["korisnik"]);
+                        if (isset($_SESSION['korisnik'])) :
+                        ?>
+                            <li><a class="nav-link logoutbtn crvena" href="models/log_out.php">Logout</a></li>
+                        <?php
+                        endif;
+                        ?>
 	        </ul>
 	      </div>
 	    </div>

@@ -35,12 +35,14 @@
 
 		global $con;
 		$id = $_GET["id"];
+
 		$queryForImage = "SELECT * FROM cars c INNER JOIN images i ON c.imageID = i.imageID WHERE carsID = $id";
 		$image = $con->query($queryForImage)->fetch();
 		$queryForModel = "SELECT * FROM cars where carsID = $id";
 		$model = $con->query($queryForModel)->fetch();
 		$queryForBrand = "SELECT * FROM cars c INNER JOIN cars_brand cb ON c.cars_brandID = cb.cars_brandID WHERE carsID = $id";
 		$brand = $con->query($queryForBrand)->fetch();
+    
 		
 		
 	?>
@@ -68,10 +70,10 @@
             <input type="date" id="endDate"><br>
             <label for="totalPrice" class='text-danger h4'>Total Price </label>
             <h5 class='text-center text-danger font-weight-bold' name='totalPrice' id='totalPrice'></h5>
-    <!-- <?php
-        // echo "<input type='hidden' data-id='$carID'>";
-        // echo "<input type='hidden' data-price='$result->price'>";
-    ?> -->
+     <?php
+        echo "<input type='hidden' data-id='$id'>";
+        echo "<input type='hidden' data-price='$model->price'>";
+    ?>
             <input type="button" class="btn btn-dark" id="finalRentButton" value="Rent"><br>
             <span class='mt-5 h5 text-danger font-weight-bold text-center w-100' id='errorDate'></span>
         </form>

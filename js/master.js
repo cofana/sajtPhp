@@ -8,6 +8,7 @@ $(document).ready(function(){
     const USERNAME_ERROR = "Username needs to start with a letter and length of minimum 3";
     const PASSWORD_ERROR = "Password needs to have at least one big letter, one number and length of minimum 8";
     const EMAIL_ERROR = "Email is not in valid format.  Example: filip123@gmail.com";
+    const ERROR_SURVEY = "Please vote to see results";
     
     var errors = [];
     function check(input, regex, error, div) {
@@ -147,6 +148,93 @@ $("#contactButton").click(function () {
         $("#response").text(
           "Message was succesfully sent."
         );
+      },
+    });
+  }
+});
+//RENT BUTTOn
+$(document).on("click", "button[name='finalRent']", function (e) {
+  errors = [];
+  var carID = $(this).attr("id");
+  $.ajax({
+    type: "GET",
+    url: "models/rentCar.php",
+    data: {
+      carIDPHP: carID,
+    },
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      if (response == true) {
+        alert("Please log in to rent a car.");
+        location.replace("index.php");
+      } else if (response == false) {
+        location.replace(`car-final.php?id=${carID}`);
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+});
+$("#endDate").change(function (e) {
+  var currentDate = new Date();
+  var price = $("input[data-price]").attr("data-price");
+  var beginDate = new Date(document.getElementById("beginDate").value);
+  var endDate = new Date(document.getElementById("endDate").value);
+  var daysRent = Math.round(Math.abs((endDate - beginDate) / ONE_DAY));
+  var totalPriceSpan = $("#totalPrice");
+  console.log(beginDate);
+  if (beginDate < currentDate || endDate < currentDate) {
+    errors.push("ERROR DATE");
+    totalPriceSpan.text("");
+    $("#errorDate").text("Please select a date in future");
+  }
+  if (beginDate == "Invalid Date" || endDate == "Invalid Date") {
+    totalPriceSpan.text("");
+    $("#errorDate").text("Please select a date in future");
+  } else {
+    totalPriceSpan.html(daysRent * price + " &euro; / " + daysRent + " days");
+  }
+});
+$("#finalRentButton").click(function (e) {
+  errors = [];
+  var currentDate = new Date();
+  var carID = $("input[data-id]").attr("data-id");
+  var price = $("input[data-price]").attr("data-price");
+  var totalPriceSpan = $("#totalPrice");
+  var beginDate = new Date(document.getElementById("beginDate").value);
+  var endDate = new Date(document.getElementById("endDate").value);
+  if (beginDate == "Invalid Date" || endDate == "Invalid Date") {
+    errors.push("ERROR DATE");
+    totalPriceSpan.text("");
+    $("#errorDate").text("Please select a date");
+  }
+  if (beginDate < currentDate || endDate < currentDate) {
+    errors.push("ERROR DATE");
+    totalPriceSpan.text("");
+    $("#errorDate").text("Please select a date in future");
+  }
+  if (errors.length == 0) {
+    //TOTAL PRICE SHOW
+    var daysRent = Math.round(Math.abs((endDate - beginDate) / ONE_DAY));
+    totalPriceSpan.html(daysRent * price + " &euro; / " + daysRent + " days");
+    var totalPrice = daysRent * price;
+    $.ajax({
+      type: "POST",
+      url: "models/carRentFinal.php",
+      data: {
+        carIDPHP: carID,
+        beginDatePHP: beginDate.toISOString().split("T")[0],
+        endDatePHP: endDate.toISOString().split("T")[0],
+        totalPricePHP: totalPrice,
+      },
+      dataType: "json",
+      success: function (response) {
+        alert(
+          `You rented successfully for the ${daysRent} days and the total price of ${totalPrice} €`
+        );
+        location.replace("index.php");
       },
     });
   }
@@ -1069,6 +1157,59 @@ $(document).on("click", "input[name='deleteUser']", function (e) {
       setTimeout(() => {
         $("#error").text("");
       }, 1500);
+    },
+  });
+});
+
+$("#surveySubmit").on("click", function (e) {
+  e.preventDefault();
+  console.log("click");
+  errors = [];
+  var answerID = $("input[name='answer']:checked").val();
+  var surveyError = $("#surveyError");
+  surveyError.text("");
+  if (!answerID) {
+    errors.push(ERROR_SURVEY);
+    surveyError.text(ERROR_SURVEY);
+  }
+  if (errors.length == 0) {
+    $.ajax({
+      type: "POST",
+      url: "models/logicSurvey.php",
+      data: {
+        answerIDPHP: answerID,
+      },
+      dataType: "json",
+      success: function (response) {
+        location.reload();
+      },
+    });
+  }
+});
+$(document).on("blur", "#search", function () {
+  setTimeout(() => {
+    results.style.display = "none";
+  }, 2000);
+});
+$(document).on("input", "#search", function () {
+  var results = document.getElementById("results");
+  var value = $(this).val();
+  $.ajax({
+    type: "POST",
+    url: "models/search.php",
+    data: { valuePHP: value },
+    dataType: "json",
+    success: function (response) {
+      if (response == 0) {
+        results.style.display = "flex";
+        results.innerText = "No results";
+      } else {
+        results.innerHTML = "";
+        for (let i = 0; i < response.length; i++) {
+          results.style.display = "flex";
+          results.innerHTML += `<a href='car-single.php?id=${response[i]["carsID"]}' class='nav-link font-weight-bold text-center'><img class='img-fluid' src='${response[i]["path"]}'/> ${response[i]["car_brandName"]} ${response[i]["model"]}</a>`;
+        }
+      }
     },
   });
 });

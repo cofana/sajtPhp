@@ -151,3 +151,36 @@ footer {
   margin-top:5px;margin-bottom:10px;cursor:grabbing!important;border-radius:15px;
 }
 .scroll2::-webkit-scrollbar-thumb{background: var(--blue);cursor:grabbing!important;border-radius:15px;}
+.blokZaCentriranje{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#firstNameError, #lastNameError, #messageError{
+  color: red !important;
+}
+.logoutbtn{
+  margin-top: 8px;
+  
+}
+.crvena{
+  color:red !important;
+}
+.adminPanelBoja{
+  color: #fff !important;
+}
+.bela{
+  color: #fff !important;
+}
+.korisnikIme{
+  width: 100%;
+  text-align: center;
+}
+.plava{
+  color: rgb(67, 114, 224) !important;
+}
+.searchForma{
+  margin-bottom: 20px;
+  margin-left: 16px;
+}

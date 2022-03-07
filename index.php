@@ -1,154 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <?php
+
+<head>
+	<?php
 	session_start();
-    include_once "includes/head.php";
-    ?>
-  </head>
-  <body>
-    
-	  <?php
-    include_once "includes/nav.php";
-	
-    ?>
-    
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
-          <div class="col-lg-8 ftco-animate">
-          	<div class="text w-100 text-center ">
-	            <h1 class="mb-4 indeksNaslov">Fast &amp; Easy Way To Rent A Car</h1>
-            </div>
-          </div>
-		  <?php
-		  if(!isset($_SESSION['korisnik'])){
-			  ?>
-			   <div class="col-lg-8">
-            <h1 class="loginTekst">Log in</h1>
-            <form action="#" class="contact-form">
-              <label for="username" class="labelLogin">Username: </label>
-              <div class="form-group">
-                <input type="text" id="user" name="username">
-              </div>
-              <label for="password" class="labelLogin">Password: </label>
-              <div class="form-group">
-                <input type="password" id="pass" name="password">
-              </div>
-              <div class="form-group">
-                <input type="button" value="Log in" id="loginButton">
-              </div>
-            </form>
-			  <?php
-		  
-		  }
-		  ?>
-         
+	include_once "includes/head.php";
+	?>
+</head>
 
-			
+<body>
 
-          </div>
-        </div>
-      </div>
-    </div>
+	<?php
+	include_once "includes/nav.php";
 
-	
-    <section class="ftco-section ftco-no-pt bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">What we offer</span>
-            <h2 class="mb-2 h2popular">Our most popular cars</h2>
-          </div>
-        </div>
-		<?php
-
-		include_once "data/connection.php";
-		global $con;
-		$query = "SELECT * FROM cars c INNER JOIN images i on c.imageID=i.imageID INNER JOIN cars_brand cb on c.cars_brandID = cb.cars_brandID WHERE c.carsID = 2 AND c.carsID = 11 AND c.carsID = 23 AND c.carsID = 24";
-		$result = $con->query($query)->fetchAll();
-
-		if($result){
-			?>
-			<div class="row">
-    			<div class="col-md-12">
-    				<div class="carousel-car owl-carousel">
-    					<div class="item">
-    						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/volkswagen_arteon);">
-		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0"><?php echo $res->model ?></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat"><?php echo $res->name ?></span>
-			    						<p class="price ml-auto">$<?php echo $res->price ?> <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
-		    					</div>
-		    				</div>
-    					</div>
-					</div>
-				</div>
-			</div>
-		
-		<?php
-		}
 	?>
 
-    		
-    					<!-- <div class="item">
-    						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/Audi_A8.jpg);">
-		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">A8</a></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">Audi</span>
-			    						<p class="price ml-auto">$38 <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
-		    					</div>
-		    				</div>
-    					</div>
-    					<div class="item">
-    						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/Honda_Civic_Type_R.jpg);">
-		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Civic Type R</a></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">Honda</span>
-			    						<p class="price ml-auto">$32 <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
-		    					</div>
-		    				</div>
-    					</div>
-    					<div class="item">
-    						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/volkswagen_arteon.jpg);">
-		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Arteon</a></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">Volkswagen</span>
-			    						<p class="price ml-auto">$34 <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1 book-btn">Book now</a></p>
-		    					</div>
-		    				</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div> -->
+	<div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+				<div class="col-lg-8 ftco-animate">
+					<div class="text w-100 text-center ">
+						<h1 class="mb-4 indeksNaslov">Fast &amp; Easy Way To Rent A Car</h1>
+					</div>
+				</div>
+				<?php
+				if (!isset($_SESSION['korisnik'])) {
+				?>
+					<div class="col-lg-8">
+						<h1 class="loginTekst">Log in</h1>
+						<form action="#" class="contact-form">
+							<label for="username" class="labelLogin">Username: </label>
+							<div class="form-group">
+								<input type="text" id="user" name="username">
+							</div>
+							<label for="password" class="labelLogin">Password: </label>
+							<div class="form-group">
+								<input type="password" id="pass" name="password">
+							</div>
+							<div class="form-group">
+								<input type="button" value="Log in" id="loginButton">
+							</div>
+						</form>
+
+					<?php
+				}
+					?>
+					</div>
+					<?php
+					global $con;
+					if (isset($_SESSION['korisnik'])) {
+						$korisnik = $_SESSION['korisnik'];
+						$output = "<h1 class='bela korisnikIme'>Hello $korisnik->firstName $korisnik->lastName</h1>";
+						echo $output;
+					}
+					?>
+			</div>
+
+
 		</div>
-    </section>
-    
-    <?php
-      include_once "includes/footer.php";
-      include_once "includes/loader.php";
-      include_once "includes/scripts.php";
-    ?>    
-  </body>
+		<div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+
+			<?php
+			if (isset($_SESSION["korisnik"])) {
+				try {
+					include_once("data/connection.php");
+					include_once("functions.php");
+					echo "<div class='container w-75 text-left'>";
+					$username = $_SESSION["korisnik"]->username;
+
+					$query = "SELECT voted FROM users WHERE username = '$username'";
+					$glasanje = $con->query($query)->fetch();
+
+					if ($glasanje->voted == 0) {
+						// VOTED
+						$query = "SELECT * FROM survey WHERE surveyID = 1";
+						$result = $con->query($query)->fetch();
+						echo "<p class='h5 font-weight-bold mb-3 plava'>$result->question</p> <br>";
+						$query = "SELECT * FROM answers WHERE surveyID = 1";
+						$result = $con->query($query)->fetchAll();
+						echo "<table class='table bela'>";
+						foreach ($result as $res) {
+							echo ("<tr><td class='h6 plava' width='10%'>$res->answerName</td><td class='text-left'><input type='radio' value='$res->answerID' class='text-left' name='answer'></td></tr>");
+						}
+						echo "</table>";
+						echo ("<button class='btn btn-dark' id='surveySubmit'>Submit answer</button>");
+						echo ("<span id='surveyError' class='text-danger ml-5 font-weight-bold'></span>");
+					} else if ($glasanje->voted == 1) {
+						// RESULTS OF VOTING
+						echo "<p class='h5 font-weight-bold mb-3'>Results of voting</p> <br>";
+						$query = "SELECT answerName FROM answers WHERE surveyID = 1";
+						$result = $con->query($query)->fetchAll();
+						$percents = showPercents(1);
+						echo "<table class='table'>";
+						for ($i = 0; $i < count($result); $i++) {
+							echo "<tr>";
+							echo "<td class='h6' width='10%'>" . $result[$i]->answerName . "</td>";
+							echo "<td class='results text-left'>";
+							echo "<div class='bg-primary text-right font-weight-bold pr-1 rounded-right' style='width:" . $percents[$i] . "%'>" . round($percents[$i]) . "%</div>";
+							echo "</td>";
+							echo "</tr>";
+						}
+						echo "</table>";
+						echo "<span class='text-danger font-weight-bold' id='surveyError'></span>";
+					}
+					echo "</div>";
+				} catch (PDOException $e) {
+					http_response_code(500);
+					echo $e->getMessage();
+				}
+			}
+			?>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<?php
+	include_once "includes/footer.php";
+	include_once "includes/loader.php";
+	include_once "includes/scripts.php";
+	?>
+</body>
+
 </html>

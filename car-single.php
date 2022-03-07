@@ -189,7 +189,7 @@
 			<div class="row">
 				<div class="col text-center justify-content-center">
 				
-					<a href='car-final.php?id=<?php echo $id?>' class='btn btn-primary py-2 mr-1 book-btn dugmeKupi'>Book now</a>
+					<a href='car-final.php?id=<?php echo $id?>' class='btn btn-primary py-2 mr-1 book-btn dugmeKupi' name='finalRent'>Book now</a>
 				</div>
 			</div>
 		</div>

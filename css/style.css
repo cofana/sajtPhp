@@ -8317,7 +8317,6 @@ h1, h2, h3, h4, h5,
       font-size: 16px;
       letter-spacing: .1em; }
     .ftco-navbar-light.scrolled .nav-link {
-      padding-top: 0.9rem !important;
       padding-bottom: 0.9rem !important;
       color: #000000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
@@ -9550,6 +9549,8 @@ textarea.form-control {
 
 .block-27 ul {
   padding: 0;
+  width: 100%;
+  text-align: center;
   margin: 0; }
   .block-27 ul li {
     display: inline-block;
