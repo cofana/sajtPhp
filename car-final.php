@@ -5,9 +5,7 @@
     if(!isset($_SESSION)){
       session_start();
     }
-    if(!isset($_SESSION["korisnik"])){
-      header("Location: index.php");
-    }
+    
     include_once "includes/head.php";
     ?>
 </head>

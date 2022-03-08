@@ -3,6 +3,7 @@
 <head>
     <?php
     include_once "includes/head.php";
+	session_start();
     ?>
 </head>
   <body>
@@ -44,6 +45,8 @@
 		$body = $con->query($queryForBody)->fetch();
 		$queryForDrive = "SELECT * FROM cars c INNER JOIN drive d ON c.driveID = d.driveID WHERE carsID = $id";
 		$drive = $con->query($queryForDrive)->fetch();
+		$queryForSeats = "SELECT * FROM cars c INNER JOIN seats s ON c.seatsID = s.seatsID";
+		$seats = $con->query($queryForSeats)->fetch();
 
 
 	?>
@@ -177,7 +180,7 @@
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
 		                	Seats
-		                	<span><?php echo $model->seatsNumber ?></span>
+		                	<span><?php echo $seats->number ?></span>
 		                </h3>
 	                </div>
                 </div>
@@ -189,7 +192,7 @@
 			<div class="row">
 				<div class="col text-center justify-content-center">
 				
-					<a href='car-final.php?id=<?php echo $id?>' class='btn btn-primary py-2 mr-1 book-btn dugmeKupi' name='finalRent'>Book now</a>
+					<button class='btn btn-primary py-2 mr-1 book-btn dugmeKupi' name='finalRent' id='<?php echo $id?>' >Book now</button>
 				</div>
 			</div>
 		</div>

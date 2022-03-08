@@ -41,25 +41,32 @@
 							<div class="form-group">
 								<input type="button" value="Log in" id="loginButton">
 							</div>
+							<div class="form-group">
+								<p>Dont have an account? Click <a href="register.php">here</a> to register</p>
+							</div>
 						</form>
 
 					<?php
 				}
 					?>
-					</div>
 					<?php
 					global $con;
 					if (isset($_SESSION['korisnik'])) {
 						$korisnik = $_SESSION['korisnik'];
-						$output = "<h1 class='bela korisnikIme'>Hello $korisnik->firstName $korisnik->lastName</h1>";
+						$output = "<h1 class='crvena korisnikIme'>Hello $korisnik->firstName $korisnik->lastName</h1>";
+						$output .= "<h1 class='crvena korisnikIme'>Scroll down to answer our survey</h1>";
 						echo $output;
 					}
 					?>
+					</div>
+					
+					
+					
 			</div>
 
 
 		</div>
-		<div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+		<div class="row no-gutters autoHeight justify-content-start align-items-center justify-content-center">
 
 			<?php
 			if (isset($_SESSION["korisnik"])) {

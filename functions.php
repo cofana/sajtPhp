@@ -1,12 +1,13 @@
 <?php
     include "data/connection.php";
-    function unosKorisnika($ime, $prezime, $email, $username, $lozinka){
+    
+    function unosKorisnika($ime, $prezime, $email, $username, $sifrovanaLozinka){
         global $con;
         $upit = "INSERT INTO users VALUES (null,:username, :lozinka, CURRENT_TIMESTAMP, :email, :ime, :prezime,1, 0, 0)";
 
         $priprema = $con->prepare($upit);
         $priprema->bindParam(':username', $username);
-        $priprema->bindParam(':lozinka', $lozinka);
+        $priprema->bindParam(':lozinka', $sifrovanaLozinka);
         $priprema->bindParam(':email', $email);
         $priprema->bindParam(':ime', $ime);
         $priprema->bindParam(':prezime', $prezime);
@@ -26,9 +27,9 @@
         $rezultat = $priprema->fetch();
         return $rezultat;
     }
-    
+    $errors = array();
     function check($regex, $input, $error){
-        $errors = [];
+        
         if(!isset($input) or empty($input) or !preg_match($regex,$input)){
             array_push($errors, $error);
         }

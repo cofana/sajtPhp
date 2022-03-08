@@ -8,23 +8,35 @@
             include_once "../functions.php";
             include_once "regex.php";
 
-            $ime = $_POST['ime'];
-            $prezime = $_POST['prezime'];
-            $email = $_POST['email'];
-            $username = $_POST['username'];
-            $lozinka = md5($_POST['lozinka']);
-
+            
+            $ime = $_POST['imePHP'];
+            $prezime = $_POST['prezimePHP'];
+            $email = $_POST['emailPHP'];
+            $username = $_POST['usernamePHP'];
+            $lozinka = $_POST['lozinkaPHP'];
+            $sifrovanaLozinka = md5($lozinka);
             
 
-            $unosKorisnika = unosKorisnika($ime, $prezime, $email, $username, $lozinka);
-            if($unosKorisnika){
+            check(REGEX_NAMES, $ime, ERROR_FIRSTNAME);
+            check(REGEX_NAMES, $prezime, ERROR_LASTNAME);
+            check(REGEX_USERNAME, $username, ERROR_USERNAME);
+            check(REGEX_PASSWORD, $lozinka, ERROR_PASSWORD);
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                array_push($errors,ERROR_EMAIL);}
 
-                
 
-                $odgovor = ["poruka" => "Uspesan unos"];
-                echo json_encode($odgovor);
-                http_response_code(201);
+            
+            if(count($errors)==0){
+                $unosKorisnika = unosKorisnika($ime, $prezime, $email, $username, $sifrovanaLozinka);
+                if($unosKorisnika){
+
+                    $odgovor = ["poruka" => "Succesfully Registered"];
+                    echo json_encode($odgovor);
+                    http_response_code(201);
+                }
             }
+            
+
             else echo json_encode(0);
             
 

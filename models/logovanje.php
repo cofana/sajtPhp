@@ -5,10 +5,12 @@
         include_once "../functions.php";
         
         try{
+            include_once "../data/connection.php";
+            include_once "regex.php";
             $user = $_POST['user'];
             $pass = md5($_POST['pass']);
 
-            //provera
+            
 
             $korisnikObj = proveraLogovanje($user, $pass);
 

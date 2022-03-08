@@ -53,11 +53,11 @@ $(document).ready(function(){
         var podaciZaSlanje;
         if(errors.length==0){
              podaciZaSlanje = {
-                ime: firstName,
-                prezime: lastName,
-                email: email,
-                lozinka: password,
-                username: username
+                imePHP: firstName,
+                prezimePHP: lastName,
+                emailPHP: email,
+                lozinkaPHP: password,
+                usernamePHP: username
             }
         }
 
@@ -1200,6 +1200,7 @@ $(document).on("input", "#search", function () {
     data: { valuePHP: value },
     dataType: "json",
     success: function (response) {
+      console.log(response);
       if (response == 0) {
         results.style.display = "flex";
         results.innerText = "No results";
@@ -1207,7 +1208,7 @@ $(document).on("input", "#search", function () {
         results.innerHTML = "";
         for (let i = 0; i < response.length; i++) {
           results.style.display = "flex";
-          results.innerHTML += `<a href='car-single.php?id=${response[i]["carsID"]}' class='nav-link font-weight-bold text-center'><img class='img-fluid' src='${response[i]["path"]}'/> ${response[i]["car_brandName"]} ${response[i]["model"]}</a>`;
+          results.innerHTML += `<div class="searchDiv"><a href='car-single.php?id=${response[i]["carsID"]}' class='nav-link font-weight-bold text-center'><img class='search-img' src='images/${response[i]["path"]}'/> ${response[i]["car_brandName"]} ${response[i]["model"]}</a></div>`;
         }
       }
     },
