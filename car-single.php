@@ -45,9 +45,8 @@
 		$body = $con->query($queryForBody)->fetch();
 		$queryForDrive = "SELECT * FROM cars c INNER JOIN drive d ON c.driveID = d.driveID WHERE carsID = $id";
 		$drive = $con->query($queryForDrive)->fetch();
-		$queryForSeats = "SELECT * FROM cars c INNER JOIN seats s ON c.seatsID = s.seatsID";
+		$queryForSeats = "SELECT number FROM cars c INNER JOIN seats s ON c.seatsID = s.seatsID WHERE carsID = $id";
 		$seats = $con->query($queryForSeats)->fetch();
-
 
 	?>
 	<section class="ftco-section ftco-car-details">

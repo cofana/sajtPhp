@@ -16,13 +16,15 @@
         return $rezultat;
     }
 
-    function proveraLogovanje($username, $password){
+    function proveraLogovanje($username, $sifrovaniPass){
         global $con;
 
-        $upit = "SELECT * FROM users u JOIN roles r ON u.roleID = r.roleID WHERE u.username = ? AND u.password = ?";
+        $upit = "SELECT * FROM users u JOIN roles r ON u.roleID = r.roleID WHERE u.username = :username AND u.password = :lozinka ";
 
         $priprema = $con->prepare($upit);
-        $priprema->execute([$username,$password]);
+        $priprema->bindParam(':username', $username);
+        $priprema->bindParam(':lozinka', $sifrovaniPass);
+        $priprema->execute();
 
         $rezultat = $priprema->fetch();
         return $rezultat;

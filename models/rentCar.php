@@ -4,7 +4,7 @@
         session_start();
     }
     try{
-        if(isset($_SESSION["username"])){
+        if(isset($_SESSION["korisnik"])){
             include_once("../data/connection.php");
             $carID = $_GET["carIDPHP"];
             $query = "SELECT * FROM cars WHERE carsID = :carID";

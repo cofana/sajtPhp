@@ -8,20 +8,24 @@
             include_once "../data/connection.php";
             include_once "regex.php";
             $user = $_POST['user'];
-            $pass = md5($_POST['pass']);
+            $pass = $_POST['pass'];
+            $sifrovaniPass = md5($pass);
+
+            check(REGEX_USERNAME,$user,ERROR_USERNAME);
+            check(REGEX_PASSWORD,$pass,ERROR_PASSWORD);
 
             
+            if(count($errors)==0){
+                $korisnikObj = proveraLogovanje($user, $sifrovaniPass);
 
-            $korisnikObj = proveraLogovanje($user, $pass);
+                if($korisnikObj){
+                    $_SESSION['korisnik'] = $korisnikObj;
+                    
 
-            if($korisnikObj){
-                $_SESSION['korisnik'] = $korisnikObj;
-                
-                // $_SESSION['korisnik_id'] = $korisnikObj->userID;
-
-                $odgovor = ["poruka"=>"Uspesno logovanje"];
-                echo json_encode($odgovor);
-                http_response_code(200);
+                    $odgovor = ["poruka"=>"Uspesno logovanje"];
+                    echo json_encode($odgovor);
+                    http_response_code(200);
+                }
             }
 
 

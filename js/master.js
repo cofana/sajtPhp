@@ -9,6 +9,7 @@ $(document).ready(function(){
     const PASSWORD_ERROR = "Password needs to have at least one big letter, one number and length of minimum 8";
     const EMAIL_ERROR = "Email is not in valid format.  Example: filip123@gmail.com";
     const ERROR_SURVEY = "Please vote to see results";
+    const ONE_DAY = 24 * 60 * 60 * 1000;
     
     var errors = [];
     function check(input, regex, error, div) {
@@ -152,7 +153,7 @@ $("#contactButton").click(function () {
     });
   }
 });
-//RENT BUTTOn
+
 $(document).on("click", "button[name='finalRent']", function (e) {
   errors = [];
   var carID = $(this).attr("id");
@@ -215,6 +216,7 @@ $("#finalRentButton").click(function (e) {
     totalPriceSpan.text("");
     $("#errorDate").text("Please select a date in future");
   }
+  console.log(errors.length);
   if (errors.length == 0) {
     //TOTAL PRICE SHOW
     var daysRent = Math.round(Math.abs((endDate - beginDate) / ONE_DAY));
@@ -222,7 +224,7 @@ $("#finalRentButton").click(function (e) {
     var totalPrice = daysRent * price;
     $.ajax({
       type: "POST",
-      url: "models/carRentFinal.php",
+      url: "models/rentCarFinal.php",
       data: {
         carIDPHP: carID,
         beginDatePHP: beginDate.toISOString().split("T")[0],

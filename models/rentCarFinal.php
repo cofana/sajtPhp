@@ -7,7 +7,8 @@
         try{
             include_once("../functions.php");
             include_once("../data/connection.php");
-            $username = $_SESSION["username"];
+            $username = $_SESSION['korisnik']->username;
+            
             $query = "SELECT userID FROM users WHERE username = '$username'";
             $result = $con ->query($query) ->fetch();
             $userID = $result->userID;

@@ -49,7 +49,7 @@
       	<div class="row justify-content-center">
       		<div class="col-md-12">
       			<div class="car-details">
-      				<div class="img rounded" style="background-image: url(images/<?php echo $image->path; ?>);"></div> <!-- ucitavanje za sliku -->
+      				<div class="img rounded" style="background-image: url(images/<?php echo $image->path; ?>);"></div> 
       				<div class="text text-center">
       					<span class="subheading"><?php echo $brand->name ?></span>
       					<h2><?php echo $model->model ?></h2>
