@@ -288,7 +288,7 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
       },
       dataType: "json",
       success: function (response) {
-        if (response == 1) {
+        if (response) {
           showTable("panel/answers.php");
           $("#success").text("Successfully deleted.");
           setTimeout(() => {
@@ -711,6 +711,95 @@ $(document).on("click", "input[name='updateDrive']", function (e) {
     },
   });
 });
+$("#fuel").click(function () {
+  showTable("fuel.php");
+});
+//INSERT FUEL
+$(document).on("click", "#insertFuel", function (e) {
+  var name = $("#fuelName").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertFuel.php",
+    data: {
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("fuel.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("fuel.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//DELETE FUEL
+$(document).on("click", "input[name='deleteFuel']", function () {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteFuel.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("fuel.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("fuel.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+// UPDATE DRIVE
+$(document).on("click", "input[name='updateFuel']", function (e) {
+  var fuelID = $(this).attr("id");
+  var name = $(this).parent().parent().find("td:nth-child(2) input").val();
+  $.ajax({
+    type: "POST",
+    url: "models/updateFuel.php",
+    data: {
+      fuelIDPHP: fuelID,
+      namePHP: name,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("fuel.php");
+        $("#success").text("Successfully updated.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("fuel.php");
+      $("#error").text("Update failed. Please insert valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
 $("#images").click(function (e) {
   showTable("images.php");
 });
@@ -725,7 +814,7 @@ $(document).on("click", "input[name='deleteImage']", function (e) {
     },
     dataType: "json",
     success: function (response) {
-      if (response == 1) {
+      if (response == true) {
         showTable("images.php");
         $("#success").text("Successfully deleted.");
         setTimeout(() => {
@@ -842,11 +931,11 @@ $(document).on("click", "input[name='updateMenu']", function (e) {
     data: {
       menuIDPHP: menuID,
       hrefPHP: href,
-      titlePHP: titlePHP,
+      titlePHP: title,
     },
     dataType: "json",
     success: function (response) {
-      if (response == 1) {
+      if (response) {
         showTable("menu.php");
         $("#success").text("Successfully updated.");
         setTimeout(() => {
@@ -922,6 +1011,65 @@ $(document).on("click", "input[name='deleteRole']", function () {
     },
   });
 });
+$("#seats").click(function (e) {
+  showTable("seats.php");
+});
+//DELETE SEATS
+$(document).on("click", "input[name='deleteSeats']", function (e) {
+  var ID = $(this).attr("id");
+  $.ajax({
+    type: "POST",
+    url: "models/deleteSeats.php",
+    data: {
+      IDPHP: ID,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("seats.php");
+        $("#success").text("Successfully deleted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("seats.php");
+      $("#error").text("Delete failed.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+});
+//INSERT SEATS
+$(document).on("click", "#insertSeats", function (e) {
+  var number = $("#seat").val();
+  $.ajax({
+    type: "POST",
+    url: "models/insertSeats.php",
+    data: {
+      numberPHP: number,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response == 1) {
+        showTable("seats.php");
+        $("#success").text("Successfully inserted.");
+        setTimeout(() => {
+          $("#success").text("");
+        }, 1500);
+      }
+    },
+    error: function (error) {
+      showTable("seats.php");
+      $("#error").text("Insert failed. Please insert a valid values.");
+      setTimeout(() => {
+        $("#error").text("");
+      }, 1500);
+    },
+  });
+})
 $("#survey").click(function () {
   showTable("survey.php");
 });

@@ -16,8 +16,8 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><button type='text' id='carsBrandName' placeholder='Cars brand'></td>
-                <td colspan='2'><button id='insertCarsBrand' class='btn btn-dark w-75' value='Insert'></td>
+                <td><input type='text' id='carsBrandName' placeholder='Cars brand'></td>
+                <td colspan='2'><button id='insertCarsBrand' class='btn btn-dark w-75'>Insert</button></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>cars_brandID</td>

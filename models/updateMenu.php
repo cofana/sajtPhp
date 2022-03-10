@@ -12,8 +12,8 @@
             $prepared -> bindParam(":href", $href);
             $prepared -> bindParam(":title", $title);
             $prepared -> bindParam(":menuID", $menuID);
-            $result = $prepared ->execute();
-            echo json_encode($result);
+            $prepared ->execute();
+            echo json_encode($prepared);
         }
         catch(PDOException $e){
             http_response_code(500);

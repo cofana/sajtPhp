@@ -14,7 +14,7 @@ if (isset($_SESSION['korisnik'])) {
         include_once("includes/nav.php");
     ?>
     <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-        <div class="container-fluid">
+        <div class="container-fluid min-vh-100 max-width-100">
             <div class="row">
                 <div class="col-lg-12 p-2 d-flex justify-content-around pnlMargina">
                     <button id='answers' class='font-weight-bold btn bg-light text-dark'>answers</button>
@@ -23,10 +23,11 @@ if (isset($_SESSION['korisnik'])) {
                     <button id='cars_brand' class='font-weight-bold btn bg-light text-dark'>cars_brand</button>
                     <button id='contact' class='font-weight-bold btn bg-light text-dark'>contact</button>
                     <button id='drive' class='font-weight-bold btn bg-light text-dark'>drive</button>
-                    <button id='drive' class='font-weight-bold btn bg-light text-dark'>fuel</button>
+                    <button id='fuel' class='font-weight-bold btn bg-light text-dark'>fuel</button>
                     <button id='images'class='font-weight-bold btn bg-light text-dark'>images</button>
                     <button id='menu' class='font-weight-bold btn bg-light text-dark'>menu</button>
                     <button id='roles' class='font-weight-bold btn bg-light text-dark'>roles</button>
+                    <button id='seats' class='font-weight-bold btn bg-light text-dark'>seats</button>
                     <button id='survey' class='font-weight-bold btn bg-light text-dark'>survey</button>
                     <button id='transmission' class='font-weight-bold btn bg-light text-dark'>transmission</button>
                     <button id='users' class='font-weight-bold btn bg-light text-dark'>users</button>

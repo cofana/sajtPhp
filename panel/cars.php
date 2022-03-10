@@ -12,7 +12,7 @@
             try{
                 include_once("../functions.php");
                 include_once("../data/connection.php");
-                $query = "SELECT *,cb2.name as cars_brandName, cb.name as cars_bodyName, d.name as driveName, t.Name as transmissionName FROM cars c JOIN images i ON i.imageID = c.imageID JOIN cars_body cb ON cb.cars_bodyID = c.cars_bodyID JOIN fuel f ON f.fuelID = c.fuelID JOIN cars_brand cb2 ON cb2.cars_brandID = c.cars_brandID JOIN drive d ON d.driveID = c.driveID JOIN transmission t ON t.transmissionID = c.transmissionID";
+                $query = "SELECT *,cb2.name as cars_brandName, f.name as fuelName, cb.name as cars_bodyName, d.name as driveName, t.Name as transmissionName FROM cars c JOIN images i ON i.imageID = c.imageID JOIN cars_body cb ON cb.cars_bodyID = c.cars_bodyID JOIN fuel f ON f.fuelID = c.fuelID JOIN cars_brand cb2 ON cb2.cars_brandID = c.cars_brandID JOIN drive d ON d.driveID = c.driveID JOIN seats s ON s.seatsID = c.seatsID JOIN transmission t ON t.transmissionID = c.transmissionID";
                 $return = "
                 <tr>
                 <td></td>
@@ -57,8 +57,8 @@
                     <td>$r->km</td>
                     <td>$r->driveName</td>
                     <td>$r->cars_bodyName</td>
-                    <td>$r->name</td>
-                    <td>$r->seatsNumber</td>
+                    <td>$r->fuelName</td>
+                    <td>$r->number</td>
                     <td>$r->top_speed</td>
                     <td>$r->kw</td>
                     <td>$r->transmissionName</td>

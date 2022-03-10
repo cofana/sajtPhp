@@ -89,16 +89,16 @@ input[name=passwordConf]{
   border: 1px solid #000;
   border-radius: 5px;
   background-color: rgb(184, 226, 222);
-  
+  width: auto !important;
+  height: auto !important
 }
 
 .center-div {
   margin: 0 auto;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   max-height: 600px;
-  overflow: hidden;
+  overflow: auto;
   overflow-y: auto;
 }
 footer {

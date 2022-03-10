@@ -12,24 +12,24 @@
             try{
                 include_once("../functions.php");
                 include_once("../data/connection.php");
-                $query = "SELECT * FROM roles";
+                $query = "SELECT * FROM seats";
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='role' placeholder='Role'></td>
-                <td colspan='2'><input type='button' id='insertRole' class='btn btn-dark w-75' value='Insert'></td>
+                <td><input type='text' id='seat' placeholder='seat'></td>
+                <td><input type='button' id='insertSeats' class='btn btn-dark' value='Insert'></td>
                 </tr>
                 <tr>
-                <td class='font-weight-bold'>roleID</td>
-                <td class='font-weight-bold'>role</td>
+                <td class='font-weight-bold'>seatsID</td>
+                <td class='font-weight-bold'>number</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();
                 foreach($result as $r){
                     $return .="<tr>
-                    <td>$r->roleID</td>
-                    <td><input type='text' value='$r->role'></td>
-                    <td><input type='button' class='btn btn-dark' name='deleteRole' id='$r->roleID' value='Delete'</td>
+                    <td>$r->seatsID</td>
+                    <td><input type='text' value='$r->number'></td>
+                    <td><input type='button' class='btn btn-dark' name='deleteSeats' id='$r->seatsID' value='Delete'</td>
                     </tr>";
                 }
                 echo json_encode($return);

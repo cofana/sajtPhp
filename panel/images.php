@@ -17,12 +17,11 @@
                 <tr>
                 <td></td>
                 <td><input type='text' id='image' placeholder='assets/upload/image.png'></td>
-                <td colspan='2'><input type='button' id='insertImage' class='btn btn-dark w-75' value='Insert'></td>
+                <td><input type='button' id='insertImage' class='btn btn-dark' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>imageID</td>
                 <td class='font-weight-bold'>path</td>
-                <td class='font-weight-bold'>Update</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();
