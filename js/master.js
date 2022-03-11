@@ -289,7 +289,7 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
       dataType: "json",
       success: function (response) {
         if (response) {
-          showTable("panel/answers.php");
+          showTable("answers.php");
           $("#success").text("Successfully deleted.");
           setTimeout(() => {
             $("#success").text("");
@@ -297,7 +297,8 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
         }
       },
       error: function (error) {
-        showTable("panel/answers.php");
+        console.log(error);
+        showTable("answers.php");
         $("#error").text("Delete failed.");
         setTimeout(() => {
           $("#error").text("");
@@ -351,6 +352,8 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
     var km = $("#km").val();
     var driveID = $("#driveID").val();
     var carsBodyID = $("#carsBodyID").val();
+    var fuelID = $("#fuelID").val();
+    var seatsID = $("#seatsID").val();
     var topSpeed = $("#topSpeed").val();
     var kw = $("#kw").val();
     var transmissionID = $("#transmissionID").val();
@@ -366,6 +369,8 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
         kmPHP: km,
         driveIDPHP: driveID,
         carsBodyIDPHP: carsBodyID,
+        fuelIDPHP: fuelID,
+        seatsIDPHP: seatsID,
         topSpeedPHP: topSpeed,
         kwPHP: kw,
         transmissionIDPHP: transmissionID,
@@ -376,11 +381,19 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
       dataType: "json",
       success: function (response) {
         if (response == 1) {
-          alert("Successfully inserted");
+          showTable("cars.php");
+          $("#success").text("Successfully inserted.");
+          setTimeout(() => {
+            $("#success").text("");
+          }, 1500);
         }
       },
       error: function (error) {
-        alert("Insert failed. Please insert valid values.");
+        showTable("cars.php");
+        $("#error").text("Insert failed. Please insert a valid values.");
+        setTimeout(() => {
+          $("#error").text("");
+        }, 1500);
       },
     });
   });
@@ -395,10 +408,20 @@ $(document).on("click", "input[name='deleteAnswer']", function (e) {
       },
       dataType: "json",
       success: function (response) {
-        alert("Deleted successfully.");
+        if (response == 1) {
+          showTable("cars.php");
+          $("#success").text("Successfully deleted.");
+          setTimeout(() => {
+            $("#success").text("");
+          }, 1500);
+        }
       },
       error: function (error) {
-        alert("Delete failed.");
+        showTable("cars.php");
+        $("#error").text("Delete failed.");
+        setTimeout(() => {
+          $("#error").text("");
+        }, 1500);
       },
     });
   });

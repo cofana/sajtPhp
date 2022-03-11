@@ -11,11 +11,13 @@
             $email = $_POST["emailPHP"];
             $message = $_POST["messagePHP"];
             $errors = [];
+            
+
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 array_push($errors,ERROR_EMAIL);
             }
-            // check(REGEX_NAMES,$firstName,ERROR_FIRSTNAME);
-            // check(REGEX_NAMES,$lastName,ERROR_LASTNAME);
+            check(REGEX_NAMES,$firstName,ERROR_FIRSTNAME);
+            check(REGEX_NAMES,$lastName,ERROR_LASTNAME);
             if (!isset($message) OR empty($message) OR strlen($message) < 15){
                 array_push($errors, ERROR_MESSAGE);
             }

@@ -66,7 +66,7 @@
 						$output .= "<h2 class='mb-0'><a href='car-single.php?id=$res->carsID'>$res->model</a></h2>";
 						$output .= "<div class='d-flex mb-3'>";
 						$output .= "<span class='cat'>$res->carName</span>";
-						$output .= "<p class='price ml-auto'>$ $res->price <span>/day</span></p> </div>";
+						$output .= "<p class='price ml-auto'>&euro; $res->price <span>/day</span></p> </div>";
 
 						$output .= "<p class='d-flex mb-0 d-block'><a href='car-single.php?id=$res->carsID' class='btn btn-primary py-2 mr-1 book-btn'>Book now</a></p> </div></div></div>";
 					}

@@ -16,12 +16,12 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='role' placeholder='Role'></td>
-                <td colspan='2'><input type='button' id='insertRole' class='btn btn-dark w-75' value='Insert'></td>
+                <td><input type='text' id='role' placeholder='New role - varchar'></td>
+                <td colspan='2'><input type='button' id='insertRole' class='btn btn-dark' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>roleID</td>
-                <td class='font-weight-bold'>role</td>
+                <td class='font-weight-bold'>Role name</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();

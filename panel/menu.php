@@ -16,14 +16,14 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='href' placeholder='href'></td>
-                <td><input type='text' id='title' placeholder='title'></td>
+                <td><input type='text' id='href' placeholder='New href - varchar'></td>
+                <td><input type='text' id='title' placeholder='Title of page - varchar'></td>
                 <td colspan='2'><input type='button' id='insertMenu' class='btn btn-dark w-75' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>menuID</td>
                 <td class='font-weight-bold'>href</td>
-                <td class='font-weight-bold'>title</td>
+                <td class='font-weight-bold'>Title</td>
                 <td class='font-weight-bold'>Update</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";

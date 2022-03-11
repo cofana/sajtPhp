@@ -16,10 +16,10 @@
                 $return = "
                 <tr>
                 <td class='font-weight-bold'>contactID</td>
-                <td class='font-weight-bold'>firstName</td>
-                <td class='font-weight-bold'>lastName</td>
-                <td class='font-weight-bold'>email</td>
-                <td class='font-weight-bold'>message</td>
+                <td class='font-weight-bold'>First Name</td>
+                <td class='font-weight-bold'>Last Name</td>
+                <td class='font-weight-bold'>Email</td>
+                <td class='font-weight-bold'>Message</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();

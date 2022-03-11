@@ -18,9 +18,9 @@
                 <td class='font-weight-bold'>users_carsID</td>
                 <td class='font-weight-bold'>userID</td>
                 <td class='font-weight-bold'>carsID</td>
-                <td class='font-weight-bold'>beginDate</td>
-                <td class='font-weight-bold'>endDate</td>
-                <td class='font-weight-bold'>totalPrice</td>
+                <td class='font-weight-bold'>Reservation begining date</td>
+                <td class='font-weight-bold'>Reservation ending date</td>
+                <td class='font-weight-bold'>Total price in euros</td>
                 <td class='font-weight-bold' colspan='2'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();

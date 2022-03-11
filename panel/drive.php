@@ -16,12 +16,12 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='driveName' placeholder='Drive'></td>
+                <td><input type='text' id='driveName' placeholder=' New drive - 3 chars only'></td>
                 <td colspan='2'><input type='button' id='insertDrive' class='btn btn-dark w-75' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>driveID</td>
-                <td class='font-weight-bold'>name</td>
+                <td class='font-weight-bold'>Drive name</td>
                 <td class='font-weight-bold'>Update</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";

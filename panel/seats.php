@@ -16,12 +16,12 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='seat' placeholder='seat'></td>
+                <td><input type='text' id='seat' placeholder='Number of seats - int'></td>
                 <td><input type='button' id='insertSeats' class='btn btn-dark' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>seatsID</td>
-                <td class='font-weight-bold'>number</td>
+                <td class='font-weight-bold'>Number of seats</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();

@@ -14,18 +14,26 @@
                 include_once("../functions.php");
                 include_once("../data/connection.php");
                 $query = "SELECT * FROM answers";
+                $queryForSurvey = "SELECT * FROM survey";
+                $survey = $con->query($queryForSurvey)->fetchAll();
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='answerName' placeholder='Answer Name'></td>
-                <td><input type='text' id='votes' placeholder='Votes'></td>
-                <td><input type='text' id='surveyID' placeholder='surveyID'></td>
+                <td><input type='text' id='answerName' placeholder='Answer name - varchar'></td>
+                <td><input type='text' id='votes' placeholder='Votes - int'></td>
+                <td><select id='surveyID'>";
+
+                    foreach ($survey as $s){
+                        $return .= "<option value='$s->surveyID'>$s->question</option>";
+                    }
+                
+                $return .="</select></td>
                 <td colspan='2'><input type='button' id='insertAnswer' class='btn btn-dark w-75' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>answerID</td>
-                <td class='font-weight-bold'>answerName</td>
-                <td class='font-weight-bold'>Votes</td>
+                <td class='font-weight-bold'>Answer Name</td>
+                <td class='font-weight-bold'>Number of votes</td>
                 <td class='font-weight-bold'>surveyID</td>
                 <td class='font-weight-bold'>Update</td>
                 <td class='font-weight-bold'>Delete</td>

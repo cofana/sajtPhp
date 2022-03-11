@@ -5,7 +5,7 @@
             include_once("../functions.php");
             include_once("../data/connection.php");
             $path=$_POST["pathPHP"];
-            $query = "INSERT INTO menu VALUES (null, :path)";
+            $query = "INSERT INTO images VALUES (null, :path)";
             $prepared = $con->prepare($query);
             $prepared -> bindParam(":path", $path);
             $result = $prepared ->execute();

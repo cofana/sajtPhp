@@ -126,31 +126,6 @@ footer {
   width: 90%; margin: 0 auto;
   box-shadow: 0px 0px 30px 0px rgba(0,0,0,.2);
 }
-/*____   ____ ____   ___  _     _     
- / ___| / ___|  _ \ / _ \| |   | |    
- \___ \| |   | |_) | | | | |   | |    
-  ___) | |___|  _ <| |_| | |___| |___ 
- |____/ \____|_| \_\\___/|_____|_____|                                      
-*/
-/* Sa shadowom */
-/* .center-div::-webkit-scrollbar{width:10px!important;height:8px;cursor:grabbing!important;}
-.center-div::-webkit-scrollbar-track{
-  border-radius:15px;
-  margin-top:5px;
-  margin-bottom:10px;cursor:grabbing!important;
-  box-shadow:inset 0 0 6px rgba(0,0,0,0.3)!important; 
-  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3)!important; 
-}
-.center-div::-webkit-scrollbar-thumb{
-  background:var(--blue);cursor:grabbing!important;border-radius:15px;
-}
-/* Bez shadowa */
-.scroll2{unicode-bidi:bidi-override;direction:ltr;}
-.scroll2::-webkit-scrollbar{direction:rtl;width: 10px!important;height:8px;cursor:grabbing!important;}
-.scroll2::-webkit-scrollbar-track{
-  margin-top:5px;margin-bottom:10px;cursor:grabbing!important;border-radius:15px;
-}
-.scroll2::-webkit-scrollbar-thumb{background: var(--blue);cursor:grabbing!important;border-radius:15px;} */
 .blokZaCentriranje{
   width: 100%;
   display: flex;

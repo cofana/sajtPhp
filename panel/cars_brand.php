@@ -16,12 +16,12 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='carsBrandName' placeholder='Cars brand'></td>
+                <td><input type='text' id='carsBrandName' placeholder='New car brand - varchar'></td>
                 <td colspan='2'><button id='insertCarsBrand' class='btn btn-dark w-75'>Insert</button></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>cars_brandID</td>
-                <td class='font-weight-bold'>name</td>
+                <td class='font-weight-bold'>Brand name</td>
                 <td class='font-weight-bold'>Update</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";

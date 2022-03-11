@@ -16,16 +16,14 @@
                 $return = "
                 <tr>
                 <td class='font-weight-bold'>userID</td>
-                <td class='font-weight-bold'>username</td>
-                <td class='font-weight-bold'>password</td>
-                <td class='font-weight-bold'>timestamp</td>
-                <td class='font-weight-bold'>email</td>
-                <td class='font-weight-bold'>firstName</td>
-                <td class='font-weight-bold'>lastName</td>
-                <td class='font-weight-bold'>role</td>
-                <td class='font-weight-bold'>active</td>
-                <td class='font-weight-bold'>code</td>
-                <td class='font-weight-bold'>voted</td>
+                <td class='font-weight-bold'>Username</td>
+                <td class='font-weight-bold'>Password</td>
+                <td class='font-weight-bold'>Timestamp</td>
+                <td class='font-weight-bold'>Email</td>
+                <td class='font-weight-bold'>First name</td>
+                <td class='font-weight-bold'>Last name</td>
+                <td class='font-weight-bold'>Role</td>
+                <td class='font-weight-bold'>Voted</td>
                 <td class='font-weight-bold' colspan='2'>Delete</td>
                 </tr>";
                 $result = $con->query($query) ->fetchAll();
@@ -39,7 +37,6 @@
                     <td>$r->firstName</td>
                     <td>$r->lastName</td>
                     <td>$r->roleID</td>
-                    <td>$r->active</td>
                     <td>$r->voted</td>
                     <td><input type='button' class='btn btn-dark' colspan='2' name='deleteUser' id='$r->userID' value='Delete'></td>
                     </tr>";

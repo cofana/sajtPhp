@@ -3,7 +3,7 @@
     
     function unosKorisnika($ime, $prezime, $email, $username, $sifrovanaLozinka){
         global $con;
-        $upit = "INSERT INTO users VALUES (null,:username, :lozinka, CURRENT_TIMESTAMP, :email, :ime, :prezime,1, 0, 0)";
+        $upit = "INSERT INTO users VALUES (null,:username, :lozinka, CURRENT_TIMESTAMP, :email, :ime, :prezime,1, 0)";
 
         $priprema = $con->prepare($upit);
         $priprema->bindParam(':username', $username);
@@ -82,12 +82,6 @@
         $prepared = $con->prepare($query);
         $prepared ->bindParam(":username", $username);
         $prepared ->execute();
-        return $result;
-    }
-    function showTable($ID){
-        global $con;
-        $query = "SELECT * FROM $ID";
-        $result = $con->query($query)->fetchAll();
         return $result;
     }
 ?>

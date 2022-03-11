@@ -12,7 +12,7 @@
             if($result){
                 $noviQuery = "SELECT * FROM answers";
                 $result = $con->query($noviQuery)->fetchAll();
-                var_dump($result);
+                
             }
             echo json_encode($result);
         }

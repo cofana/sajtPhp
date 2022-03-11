@@ -9549,6 +9549,8 @@ textarea.form-control {
 
 .block-27 ul {
   padding: 0;
+  display: flex !important;
+  align-items: center !important;
   width: 100%;
   text-align: center;
   margin: 0; }

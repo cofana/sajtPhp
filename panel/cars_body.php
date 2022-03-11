@@ -16,12 +16,12 @@
                 $return = "
                 <tr>
                 <td></td>
-                <td><input type='text' id='carsBodyName' placeholder='Cars body'></td>
+                <td><input type='text' id='carsBodyName' placeholder='New cary body - varchar'></td>
                 <td colspan='2'><input type='button' id='insertCarsBody' class='btn btn-dark w-75' value='Insert'></td>
                 </tr>
                 <tr>
                 <td class='font-weight-bold'>cars_bodyID</td>
-                <td class='font-weight-bold'>name</td>
+                <td class='font-weight-bold'>Body name</td>
                 <td class='font-weight-bold'>Update</td>
                 <td class='font-weight-bold'>Delete</td>
                 </tr>";
